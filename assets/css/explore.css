@@ -1,0 +1,352 @@
+
+/* ========================================
+   EXPLORE PAGE
+======================================== */
+
+/* 1. Explore Hero */
+.explore-hero {
+    padding-top: 145px;
+    padding-bottom: 55px;
+    text-align: center;
+}
+
+.explore-hero .eyebrow {
+    margin-bottom: 14px;
+}
+
+.explore-hero h1 {
+    max-width: 750px;
+    margin: 0 auto 18px;
+    font-size: 52px;
+    line-height: 1.2;
+}
+
+.explore-hero p {
+    max-width: 620px;
+    margin: 0 auto 30px;
+    color: var(--text-light);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* 2. Search Box */
+.explore-search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 8px;
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.explore-search i {
+    margin-left: 14px;
+    color: var(--text-light);
+    font-size: 18px;
+}
+
+.explore-search input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 4px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.explore-search input::placeholder {
+    color: var(--text-light);
+}
+
+.explore-search button {
+    flex-shrink: 0;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* 3. Explore Section */
+.explore-section {
+    padding-top: 30px;
+    padding-bottom: 90px;
+}
+
+/* 4. Category Chips */
+.category-chips {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.category-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 22px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    background-color: var(--white);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.category-chip:hover,
+.category-chip.active {
+    background-color: var(--celeste);
+    border-color: var(--celeste);
+    color: var(--blue-dark);
+}
+
+/* 5. Filter Controls */
+.recipe-filters {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 42px;
+    padding: 22px 24px;
+    background-color: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-group label {
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.filter-group select {
+    min-width: 135px;
+    padding: 11px 32px 11px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--white);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+.filter-group select:focus {
+    border-color: var(--celeste-dark);
+}
+
+/* 6. All Recipes Heading */
+.all-recipes-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.all-recipes-heading h2 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.recipe-count {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+/* 7. Recipe Grid */
+.explore-recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+}
+
+/* 8. Recipe Card */
+.explore-recipe-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background-color: var(--white);
+    box-shadow: 0 5px 20px rgba(36, 81, 106, 0.05);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.explore-recipe-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(36, 81, 106, 0.12);
+}
+
+/* Recipe Image */
+.explore-recipe-image {
+    display: block;
+    height: 235px;
+    overflow: hidden;
+    background-color: var(--celeste-light);
+}
+
+.explore-recipe-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.explore-recipe-card:hover .explore-recipe-image img {
+    transform: scale(1.05);
+}
+
+/* 9. Favorite Button */
+.favorite-button {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--white);
+    color: var(--blue);
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.25s ease;
+}
+
+.favorite-button:hover {
+    background-color: var(--skin);
+    color: var(--orange-dark);
+    transform: scale(1.08);
+}
+
+/* JavaScript can add this class when a recipe is favorited */
+.favorite-button.active {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+/* 10. Recipe Information */
+.explore-recipe-info {
+    padding: 22px;
+}
+
+.explore-recipe-info .recipe-category {
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.explore-recipe-info h3 {
+    margin: 0 0 12px;
+    font-size: 21px;
+    line-height: 1.4;
+}
+
+.explore-recipe-info h3 a {
+    color: var(--blue-dark);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.explore-recipe-info h3 a:hover {
+    color: var(--orange-dark);
+}
+
+.explore-recipe-info p {
+    min-height: 48px;
+    margin-bottom: 20px;
+    color: var(--text-light);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* 11. Cooking Time and Difficulty */
+.explore-recipe-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 22px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.explore-recipe-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+.explore-recipe-meta i {
+    color: var(--orange);
+    font-size: 14px;
+}
+
+/* View Recipe Button */
+.recipe-view-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
+/* 12. No Results Message */
+.no-recipes {
+    padding: 70px 20px;
+    text-align: center;
+    border: 1px dashed var(--celeste-dark);
+    border-radius: 20px;
+    background-color: var(--celeste-light);
+}
+
+.no-recipes[hidden] {
+    display: none;
+}
+
+.no-recipes > i {
+    margin-bottom: 20px;
+    color: var(--celeste-dark);
+    font-size: 42px;
+}
+
+.no-recipes h3 {
+    margin-bottom: 12px;
+    color: var(--blue-dark);
+    font-size: 24px;
+}
+
+.no-recipes p {
+    margin-bottom: 24px;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* 13. Small Visual Details */
+.explore-section .eyebrow {
+    color: var(--orange-dark);
+}

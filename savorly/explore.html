@@ -1,0 +1,883 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explore Recipes | Savorly</title>
+
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/explore.css">
+
+    <script
+        src="https://kit.fontawesome.com/61c4a4816c.js"
+        crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <nav class="navbar container">
+
+            <!-- Brand -->
+            <a href="index.html" class="brand" aria-label="Savorly home">
+                <span class="brand-icon">S</span>
+                <span class="brand-name">savorly<span>.</span></span>
+            </a>
+
+            <!-- Navigation links -->
+            <ul class="nav-menu">
+                <li>
+                    <a href="index.html" class="nav-link ">Home</a>
+                </li>
+                <li>
+                    <a href="explore.html" class="nav-link active">Explore</a>
+                </li>
+                <li>
+                    <a href="favorites.html" class="nav-link">
+                        <span class="favorite-icon"><i class="fa-regular fa-heart"></i></span>
+                        Favorites
+                    </a>
+                </li>
+                <li>
+                    <a href="add-recipe.html" class="nav-link">
+                        <span ><i class="fa-solid fa-plus"></i></span>
+                        Add Recipe
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                
+            </ul>
+
+            <!-- Search -->
+            <a href="explore.html" class="search-button">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+
+        </nav>
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+    <main>
+
+        <!-- Explore introduction -->
+        <section class="explore-hero container">
+
+            <span class="eyebrow">A WORLD OF FLAVOR</span>
+
+            <h1>Find Your Next<br>Favorite Dish.</h1>
+
+            <p>
+                From quick breakfasts to comforting dinners,
+                discover recipes that make every meal special.
+            </p>
+
+            <!-- Search -->
+            <form class="explore-search" action="explore.html"
+                  method="get" role="search">
+
+                <i class="fa-solid fa-magnifying-glass"
+                   aria-hidden="true"></i>
+
+                <input
+                    type="search"
+                    id="recipe-search"
+                    name="q"
+                    placeholder="Search for a dish..."
+                    aria-label="Search for a dish">
+
+                <button type="submit" class="button button-primary">
+                    Search
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ================= FILTERS ================= -->
+        <section class="explore-section container">
+            <!-- Filter controls -->
+            <div class="recipe-filters">
+
+                <div class="filter-group">
+                    <label for="category-filter">Category</label>
+
+                    <select id="category-filter" name="category">
+                        <option value="all">All categories</option>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="dessert">Dessert</option>
+                        <option value="healthy">Healthy</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="time-filter">Cooking time</label>
+
+                    <select id="time-filter" name="time">
+                        <option value="all">Any time</option>
+                        <option value="15">15 minutes or less</option>
+                        <option value="30">30 minutes or less</option>
+                        <option value="60">60 minutes or less</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="difficulty-filter">Difficulty</label>
+
+                    <select id="difficulty-filter" name="difficulty">
+                        <option value="all">Any difficulty</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= ALL RECIPES ================= -->
+             
+            <div class="all-recipes-heading">
+                
+                <div>
+                    <h2>1. All Recipes</h2>
+                    <p>Simple ideas, delicious results.</p>
+                </div>
+
+                <span class="recipe-count">12 recipes</span>
+            </div>
+            
+
+            <div class="explore-recipe-grid">
+
+                <!-- Recipe 1 -->
+                <article class="explore-recipe-card"
+                         data-category="lunch"
+                         data-time="25"
+                         data-difficulty="easy">
+
+                    <a href="recipe.html?id=pasta"
+                       class="explore-recipe-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=85"
+                            alt="Fresh tomato pasta with herbs"
+                            loading="lazy">
+                    </a>
+
+                    <button class="favorite-button"
+                            type="button"
+                            aria-label="Add Fresh Tomato Pasta to favorites"
+                            aria-pressed="false"
+                            data-recipe-id="pasta">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <div class="explore-recipe-info">
+                        <span class="recipe-category">ITALIAN</span>
+
+                        <h3>
+                            <a href="recipe.html?id=pasta">
+                                Fresh Tomato Pasta
+                            </a>
+                        </h3>
+
+                        <p>
+                            A comforting pasta dish with juicy tomatoes
+                            and fragrant herbs.
+                        </p>
+
+                        <div class="explore-recipe-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                25 min
+                            </span>
+                            <span>Easy</span>
+                        </div>
+
+                        <a href="recipe.html?id=pasta"
+                           class="button button-outline recipe-view-button">
+                            View Recipe <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+
+                <!-- Recipe 2 -->
+                <article class="explore-recipe-card"
+                         data-category="healthy"
+                         data-time="15"
+                         data-difficulty="easy">
+
+                    <a href="recipe.html?id=salad"
+                       class="explore-recipe-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=85"
+                            alt="Colorful garden salad"
+                            loading="lazy">
+                    </a>
+
+                    <button class="favorite-button"
+                            type="button"
+                            aria-label="Add Garden Fresh Salad to favorites"
+                            aria-pressed="false"
+                            data-recipe-id="salad">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <div class="explore-recipe-info">
+                        <span class="recipe-category">HEALTHY</span>
+
+                        <h3>
+                            <a href="recipe.html?id=salad">
+                                Garden Fresh Salad
+                            </a>
+                        </h3>
+
+                        <p>
+                            Crisp greens and colorful vegetables
+                            with a refreshing dressing.
+                        </p>
+
+                        <div class="explore-recipe-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                15 min
+                            </span>
+                            <span>Easy</span>
+                        </div>
+
+                        <a href="recipe.html?id=salad"
+                           class="button button-outline recipe-view-button">
+                            View Recipe <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+
+                <!-- Recipe 3 -->
+                <article class="explore-recipe-card"
+                         data-category="dinner"
+                         data-time="40"
+                         data-difficulty="medium">
+
+                    <a href="recipe.html?id=chicken"
+                       class="explore-recipe-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=85"
+                            alt="Golden roasted chicken with herbs"
+                            loading="lazy">
+                    </a>
+
+                    <button class="favorite-button"
+                            type="button"
+                            aria-label="Add Herb Roasted Chicken to favorites"
+                            aria-pressed="false"
+                            data-recipe-id="chicken">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <div class="explore-recipe-info">
+                        <span class="recipe-category">DINNER</span>
+
+                        <h3>
+                            <a href="recipe.html?id=chicken">
+                                Herb Roasted Chicken
+                            </a>
+                        </h3>
+
+                        <p>
+                            Tender roasted chicken seasoned with
+                            aromatic herbs.
+                        </p>
+
+                        <div class="explore-recipe-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                40 min
+                            </span>
+                            <span>Medium</span>
+                        </div>
+
+                        <a href="recipe.html?id=chicken"
+                           class="button button-outline recipe-view-button">
+                            View Recipe <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+
+                <!-- Recipe 4 -->
+                <article class="explore-recipe-card"
+                         data-category="breakfast"
+                         data-time="15"
+                         data-difficulty="easy">
+
+                    <a href="recipe.html?id=pancakes"
+                       class="explore-recipe-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=800&q=85"
+                            alt="Fluffy pancakes served for breakfast"
+                            loading="lazy">
+                    </a>
+
+                    <button class="favorite-button"
+                            type="button"
+                            aria-label="Add Fluffy Breakfast Pancakes to favorites"
+                            aria-pressed="false"
+                            data-recipe-id="pancakes">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <div class="explore-recipe-info">
+                        <span class="recipe-category">BREAKFAST</span>
+
+                        <h3>
+                            <a href="recipe.html?id=pancakes">
+                                Fluffy Breakfast Pancakes
+                            </a>
+                        </h3>
+
+                        <p>
+                            Soft golden pancakes for a cozy
+                            and satisfying morning.
+                        </p>
+
+                        <div class="explore-recipe-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                15 min
+                            </span>
+                            <span>Easy</span>
+                        </div>
+
+                        <a href="recipe.html?id=pancakes"
+                           class="button button-outline recipe-view-button">
+                            View Recipe <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+
+                <!-- Recipe 5 -->
+                <article class="explore-recipe-card"
+                         data-category="lunch"
+                         data-time="20"
+                         data-difficulty="easy">
+
+                    <a href="recipe.html?id=avocado-toast"
+                       class="explore-recipe-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=85"
+                            alt="Avocado toast with fresh toppings"
+                            loading="lazy">
+                    </a>
+
+                    <button class="favorite-button"
+                            type="button"
+                            aria-label="Add Avocado Toast to favorites"
+                            aria-pressed="false"
+                            data-recipe-id="avocado-toast">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <div class="explore-recipe-info">
+                        <span class="recipe-category">QUICK MEAL</span>
+
+                        <h3>
+                            <a href="recipe.html?id=avocado-toast">
+                                Creamy Avocado Toast
+                            </a>
+                        </h3>
+
+                        <p>
+                            Crunchy toast topped with creamy avocado
+                            and simple seasonings.
+                        </p>
+
+                        <div class="explore-recipe-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                20 min
+                            </span>
+                            <span>Easy</span>
+                        </div>
+
+                        <a href="recipe.html?id=avocado-toast"
+                           class="button button-outline recipe-view-button">
+                            View Recipe <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+
+                <!-- Recipe 6 -->
+                <article class="explore-recipe-card"
+                         data-category="dessert"
+                         data-time="30"
+                         data-difficulty="easy">
+
+                    <a href="recipe.html?id=berry-bowl"
+                       class="explore-recipe-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=800&q=85"
+                            alt="Fresh berries and fruit breakfast bowl"
+                            loading="lazy">
+                    </a>
+
+                    <button class="favorite-button"
+                            type="button"
+                            aria-label="Add Berry Breakfast Bowl to favorites"
+                            aria-pressed="false"
+                            data-recipe-id="berry-bowl">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <div class="explore-recipe-info">
+                        <span class="recipe-category">FRUITY</span>
+
+                        <h3>
+                            <a href="recipe.html?id=berry-bowl">
+                                Berry Breakfast Bowl
+                            </a>
+                        </h3>
+
+                        <p>
+                            Sweet berries and fresh fruit in
+                            a bright, colorful bowl.
+                        </p>
+
+                        <div class="explore-recipe-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                10 min
+                            </span>
+                            <span>Easy</span>
+                        </div>
+
+                        <a href="recipe.html?id=berry-bowl"
+                           class="button button-outline recipe-view-button">
+                            View Recipe <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+
+                <!-- Recipe 7 -->
+                <article class="explore-recipe-card"
+                         data-category="lunch"
+                         data-time="30"
+                         data-difficulty="medium">
+
+                    <a href="recipe.html?id=fried-rice"
+                       class="explore-recipe-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=800&q=85"
+                            alt="Fried rice with vegetables"
+                            loading="lazy">
+                    </a>
+
+                    <button class="favorite-button"
+                            type="button"
+                            aria-label="Add Vegetable Fried Rice to favorites"
+                            aria-pressed="false"
+                            data-recipe-id="fried-rice">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <div class="explore-recipe-info">
+                        <span class="recipe-category">ASIAN</span>
+
+                        <h3>
+                            <a href="recipe.html?id=fried-rice">
+                                Vegetable Fried Rice
+                            </a>
+                        </h3>
+
+                        <p>
+                            A savory rice dish mixed with vegetables
+                            for a quick everyday meal.
+                        </p>
+
+                        <div class="explore-recipe-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                25 min
+                            </span>
+                            <span>Medium</span>
+                        </div>
+
+                        <a href="recipe.html?id=fried-rice"
+                           class="button button-outline recipe-view-button">
+                            View Recipe <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+
+                <!-- Recipe 8 -->
+                <article class="explore-recipe-card"
+                         data-category="dinner"
+                         data-time="30"
+                         data-difficulty="easy">
+
+                    <a href="recipe.html?id=salmon"
+                       class="explore-recipe-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=85"
+                            alt="Salmon served with fresh vegetables"
+                            loading="lazy">
+                    </a>
+
+                    <button class="favorite-button"
+                            type="button"
+                            aria-label="Add Lemon Salmon to favorites"
+                            aria-pressed="false"
+                            data-recipe-id="salmon">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <div class="explore-recipe-info">
+                        <span class="recipe-category">DINNER</span>
+
+                        <h3>
+                            <a href="recipe.html?id=salmon">
+                                Lemon Herb Salmon
+                            </a>
+                        </h3>
+
+                        <p>
+                            Flavorful salmon with herbs and a fresh
+                            hint of lemon.
+                        </p>
+
+                        <div class="explore-recipe-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                30 min
+                            </span>
+                            <span>Easy</span>
+                        </div>
+
+                        <a href="recipe.html?id=salmon"
+                           class="button button-outline recipe-view-button">
+                            View Recipe <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+
+                <!-- Recipe 9 -->
+                <article class="explore-recipe-card"
+                         data-category="dessert"
+                         data-time="30"
+                         data-difficulty="easy">
+
+                    <a href="recipe.html?id=berry-yogurt"
+                       class="explore-recipe-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=85"
+                            alt="Yogurt with fresh fruit and berries"
+                            loading="lazy">
+                    </a>
+
+                    <button class="favorite-button"
+                            type="button"
+                            aria-label="Add Berry Yogurt Parfait to favorites"
+                            aria-pressed="false"
+                            data-recipe-id="berry-yogurt">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <div class="explore-recipe-info">
+                        <span class="recipe-category">DESSERT</span>
+
+                        <h3>
+                            <a href="recipe.html?id=berry-yogurt">
+                                Berry Yogurt Parfait
+                            </a>
+                        </h3>
+
+                        <p>
+                            Creamy yogurt layered with fruit
+                            for a simple sweet treat.
+                        </p>
+
+                        <div class="explore-recipe-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                10 min
+                            </span>
+                            <span>Easy</span>
+                        </div>
+
+                        <a href="recipe.html?id=berry-yogurt"
+                           class="button button-outline recipe-view-button">
+                            View Recipe <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+
+                <!-- Recipe 10 -->
+                <article class="explore-recipe-card"
+                         data-category="lunch"
+                         data-time="30"
+                         data-difficulty="medium">
+
+                    <a href="recipe.html?id=chicken-wrap"
+                       class="explore-recipe-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=800&q=85"
+                            alt="Chicken wrap with fresh vegetables"
+                            loading="lazy">
+                    </a>
+
+                    <button class="favorite-button"
+                            type="button"
+                            aria-label="Add Chicken Veggie Wrap to favorites"
+                            aria-pressed="false"
+                            data-recipe-id="chicken-wrap">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <div class="explore-recipe-info">
+                        <span class="recipe-category">QUICK MEAL</span>
+
+                        <h3>
+                            <a href="recipe.html?id=chicken-wrap">
+                                Chicken Veggie Wrap
+                            </a>
+                        </h3>
+
+                        <p>
+                            Tender chicken and crunchy vegetables
+                            wrapped for an easy lunch.
+                        </p>
+
+                        <div class="explore-recipe-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                25 min
+                            </span>
+                            <span>Medium</span>
+                        </div>
+
+                        <a href="recipe.html?id=chicken-wrap"
+                           class="button button-outline recipe-view-button">
+                            View Recipe <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+
+                <!-- Recipe 11 -->
+                <article class="explore-recipe-card"
+                         data-category="breakfast"
+                         data-time="15"
+                         data-difficulty="easy">
+
+                    <a href="recipe.html?id=banana-smoothie"
+                       class="explore-recipe-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=85"
+                            alt="Fresh fruit smoothie"
+                            loading="lazy">
+                    </a>
+
+                    <button class="favorite-button"
+                            type="button"
+                            aria-label="Add Banana Berry Smoothie to favorites"
+                            aria-pressed="false"
+                            data-recipe-id="banana-smoothie">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <div class="explore-recipe-info">
+                        <span class="recipe-category">BREAKFAST</span>
+
+                        <h3>
+                            <a href="recipe.html?id=banana-smoothie">
+                                Banana Berry Smoothie
+                            </a>
+                        </h3>
+
+                        <p>
+                            A fruity smoothie that's refreshing
+                            and easy to prepare.
+                        </p>
+
+                        <div class="explore-recipe-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                10 min
+                            </span>
+                            <span>Easy</span>
+                        </div>
+
+                        <a href="recipe.html?id=banana-smoothie"
+                           class="button button-outline recipe-view-button">
+                            View Recipe <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+
+                <!-- Recipe 12 -->
+                <article class="explore-recipe-card"
+                         data-category="dinner"
+                         data-time="45"
+                         data-difficulty="medium">
+
+                    <a href="recipe.html?id=tomato-soup"
+                       class="explore-recipe-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=85"
+                            alt="A warm bowl of homemade soup"
+                            loading="lazy">
+                    </a>
+
+                    <button class="favorite-button"
+                            type="button"
+                            aria-label="Add Creamy Tomato Soup to favorites"
+                            aria-pressed="false"
+                            data-recipe-id="tomato-soup">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <div class="explore-recipe-info">
+                        <span class="recipe-category">COMFORT FOOD</span>
+
+                        <h3>
+                            <a href="recipe.html?id=tomato-soup">
+                                Creamy Tomato Soup
+                            </a>
+                        </h3>
+
+                        <p>
+                            A warm and comforting soup with rich
+                            tomato flavor.
+                        </p>
+
+                        <div class="explore-recipe-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                45 min
+                            </span>
+                            <span>Medium</span>
+                        </div>
+
+                        <a href="recipe.html?id=tomato-soup"
+                           class="button button-outline recipe-view-button">
+                            View Recipe <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+
+            <!-- Empty state: shown later by JavaScript -->
+            <div class="no-recipes" id="no-recipes" hidden>
+                <i class="fa-solid fa-bowl-food"></i>
+
+                <h3>No recipes found</h3>
+
+                <p>
+                    We couldn't find a dish matching your search.
+                    Try another name or change your filters.
+                </p>
+
+                <button type="button"
+                        class="button button-primary"
+                        id="reset-filters">
+                    Show All Recipes
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <div class="footer-container container">
+
+            <div class="footer-brand">
+                <a href="index.html" class="brand">
+                    <span class="brand-icon">S</span>
+                    <span class="brand-name">savorly<span>.</span></span>
+                </a>
+
+                <p>
+                    Discover delicious food, explore new recipes
+                    and bring a little more joy to your kitchen.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="explore.html">All Recipes</a></li>
+                    <li><a href="favorites.html">Favorites</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Categories</h3>
+                <ul>
+                    <li>
+                        <a href="explore.html?category=breakfast">
+                            Breakfast
+                        </a>
+                    </li>
+                    <li>
+                        <a href="explore.html?category=lunch">
+                            Lunch
+                        </a>
+                    </li>
+                    <li>
+                        <a href="explore.html?category=dinner">
+                            Dinner
+                        </a>
+                    </li>
+                    <li>
+                        <a href="explore.html?category=dessert">
+                            Dessert
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>About Savorly</h3>
+                <p>
+                    A recipe discovery project made for food lovers
+                    and curious home cooks.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom container">
+            <p>© 2026 Savorly. Made with care.</p>
+            <p>Discover it. Cook it. Love it.</p>
+        </div>
+
+    </footer>
+
+</body>
+</html>

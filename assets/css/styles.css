@@ -1,0 +1,937 @@
+
+/* ==================================================
+   1. GOOGLE FONTS
+================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+
+/* ==================================================
+   2. COLOR VARIABLES & GLOBAL SETTINGS
+================================================== */
+
+:root {
+    --celeste: #B9E8F5;
+    --celeste-light: #EAF8FC;
+    --celeste-dark: #72C9E2;
+
+    --cream: #FFF8F0;
+    --white: #FFFFFF;
+    --skin: #F4E4D5;
+
+    --orange: #F29A62;
+    --orange-dark: #DF7F45;
+
+    --blue: #24516A;
+    --blue-dark: #173B50;
+
+    --text: #294B5D;
+    --text-light: #718793;
+    --border: #DDEBF0;
+
+    --font-body: 'DM Sans', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+
+    --container-width: 1160px;
+
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 30px;
+
+    --shadow-soft: 0 10px 35px rgba(36, 81, 106, 0.08);
+    --transition: 0.3s ease;
+}
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--white);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: min(
+        var(--container-width),
+        calc(100% - 48px)
+    );
+
+    margin-inline: auto;
+}
+
+section {
+    scroll-margin-top: 100px;
+}
+
+::selection {
+    background-color: var(--celeste);
+    color: var(--blue-dark);
+}
+
+
+/* ==================================================
+   4. TYPOGRAPHY
+================================================== */
+
+h1,
+h2,
+h3 {
+    color: var(--blue-dark);
+    line-height: 1.2;
+}
+
+h1,
+h2 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 4.5vw, 4.4rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+p {
+    color: var(--text-light);
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 16px;
+
+    color: var(--orange-dark);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+/* ==================================================
+   5. HEADER & NAVBAR
+================================================== */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    z-index: 1000;
+
+    background-color: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid rgba(221, 235, 240, 0.8);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.navbar {
+    min-height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 32px;
+}
+
+
+/* Brand */
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+.brand-icon {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    background-color: var(--celeste);
+    color: var(--blue-dark);
+
+    border-radius: 14px;
+
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.brand-name {
+    color: var(--blue-dark);
+
+    font-family: var(--font-heading);
+    font-size: 1.65rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.brand-name span {
+    color: var(--orange);
+}
+
+
+/* Navigation menu */
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 36px;
+}
+
+.nav-link {
+    position: relative;
+
+    display: inline-block;
+    padding: 8px 0;
+
+    color: var(--blue);
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    transition: color var(--transition);
+}
+
+.nav-link::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    background-color: var(--orange);
+    border-radius: 10px;
+
+    transition: width var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--orange-dark);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+
+/* Search button */
+
+.search-button {
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    background-color: var(--celeste-light);
+    color: var(--blue);
+
+    border: 1px solid transparent;
+    border-radius: 50%;
+
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+.search-button:hover {
+    background-color: var(--celeste);
+    color: var(--blue-dark);
+    transform: scale(1.06);
+}
+
+
+/* ==================================================
+   6. HERO SLIDER
+================================================== */
+
+.hero {
+    margin-top: 112px;
+    margin-bottom: 100px;
+}
+
+.hero-slider {
+    position: relative;
+
+    overflow: hidden;
+
+    background-color: var(--celeste-light);
+    border-radius: var(--radius-lg);
+}
+
+
+/* Individual slide */
+
+.hero-slide {
+    display: none;
+
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    gap: 32px;
+
+    min-height: 490px;
+    padding: 58px 64px 92px;
+
+    animation: slideFade 0.6s ease both;
+}
+
+.hero-slide.active {
+    display: grid;
+}
+
+
+/* Text content */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 480px;
+}
+
+.hero-content h1,
+.hero-content h2 {
+    margin-bottom: 22px;
+    letter-spacing: -1.5px;
+}
+
+.hero-description {
+    max-width: 410px;
+    margin-bottom: 22px;
+
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.hero-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+    margin-bottom: 30px;
+
+    color: var(--blue);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+
+/* Hero image */
+
+.hero-image {
+    position: relative;
+
+    width: 100%;
+    height: 350px;
+
+    overflow: hidden;
+
+    background-color: var(--skin);
+    border-radius: 48% 48% 24px 24px;
+    box-shadow: var(--shadow-soft);
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.7s ease;
+}
+
+.hero-slide.active .hero-image img {
+    animation: imageReveal 0.8s ease both;
+}
+
+
+/* ==================================================
+   7. BUTTONS
+================================================== */
+
+.button {
+    min-height: 48px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+    padding: 12px 24px;
+
+    border: 1px solid transparent;
+    border-radius: 50px;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.button-primary {
+    background-color: var(--orange);
+    color: var(--white);
+
+    box-shadow: 0 8px 18px rgba(242, 154, 98, 0.2);
+}
+
+.button-primary:hover {
+    background-color: var(--orange-dark);
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 25px rgba(242, 154, 98, 0.3);
+}
+
+.button-outline {
+    min-height: 40px;
+    padding: 9px 17px;
+
+    background-color: transparent;
+    color: var(--blue);
+
+    border-color: var(--celeste-dark);
+
+    font-size: 0.8rem;
+}
+
+.button-outline:hover {
+    background-color: var(--celeste);
+    border-color: var(--celeste);
+    transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   8. SLIDER CONTROLS
+================================================== */
+
+.slider-controls {
+    position: absolute;
+    left: 64px;
+    bottom: 28px;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.slider-arrow {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    background-color: var(--white);
+    color: var(--blue);
+
+    border: 1px solid var(--border);
+    border-radius: 50%;
+
+    font-size: 1.1rem;
+
+    transition: all var(--transition);
+}
+
+.slider-arrow:hover {
+    background-color: var(--blue);
+    color: var(--white);
+    border-color: var(--blue);
+}
+
+.slider-pagination {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.slider-dot {
+    width: 8px;
+    height: 8px;
+
+    padding: 0;
+
+    background-color: #B6D6E1;
+    border: none;
+    border-radius: 50%;
+
+    transition:
+        width var(--transition),
+        background-color var(--transition);
+}
+
+.slider-dot.active {
+    width: 26px;
+
+    background-color: var(--orange);
+    border-radius: 20px;
+}
+
+
+/* ==================================================
+   9. SECTION HEADINGS
+================================================== */
+
+.section {
+    margin-bottom: 110px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 32px;
+    margin-bottom: 38px;
+}
+
+.section-heading h2 {
+    margin-bottom: 14px;
+}
+
+.section-heading p {
+    max-width: 560px;
+}
+
+.text-link {
+    display: inline-block;
+    flex-shrink: 0;
+
+    padding-bottom: 5px;
+
+    color: var(--orange-dark);
+    font-weight: 700;
+    font-size: 0.9rem;
+
+    transition:
+        color var(--transition),
+        transform var(--transition);
+}
+
+.text-link:hover {
+    color: var(--blue-dark);
+    transform: translateX(4px);
+}
+
+
+/* ==================================================
+   10. RECIPE GRID
+================================================== */
+
+.recipe-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+
+/* Recipe card */
+
+.recipe-card {
+    min-width: 0;
+    overflow: hidden;
+
+    background-color: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.recipe-card:hover {
+    transform: translateY(-7px);
+
+    border-color: var(--celeste-dark);
+    box-shadow: var(--shadow-soft);
+}
+
+
+/* Recipe image */
+
+.recipe-image {
+    display: block;
+
+    height: 240px;
+    overflow: hidden;
+
+    background-color: var(--skin);
+}
+
+.recipe-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+.recipe-card:hover .recipe-image img {
+    transform: scale(1.06);
+}
+
+
+/* Recipe information */
+
+.recipe-info {
+    padding: 24px;
+}
+
+.recipe-category {
+    display: inline-block;
+    margin-bottom: 10px;
+
+    color: var(--orange-dark);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.recipe-info h3 {
+    margin-bottom: 12px;
+}
+
+.recipe-info h3 a {
+    transition: color var(--transition);
+}
+
+.recipe-info h3 a:hover {
+    color: var(--orange-dark);
+}
+
+.recipe-info > p {
+    min-height: 54px;
+    margin-bottom: 22px;
+
+    font-size: 0.88rem;
+    line-height: 1.8;
+}
+
+
+/* Bottom row */
+
+.recipe-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+    padding-top: 18px;
+
+    border-top: 1px solid var(--border);
+}
+
+.recipe-bottom > span {
+    flex-shrink: 0;
+
+    color: var(--blue);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+
+/* ==================================================
+   11. DISCOVERY BANNER
+================================================== */
+
+.discovery-section {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+
+    gap: 42px;
+
+    margin-bottom: 100px;
+    padding: 36px;
+
+    overflow: hidden;
+
+    background-color: var(--skin);
+    border-radius: var(--radius-lg);
+}
+
+/* Left content */
+
+.discovery-content {
+    padding: 20px 0 20px 24px;
+}
+
+.discovery-content h2 {
+    margin-bottom: 18px;
+}
+
+.discovery-content p {
+    max-width: 460px;
+    margin-bottom: 28px;
+
+    line-height: 1.9;
+}
+
+/* Right kitchen image */
+
+.discovery-image {
+    width: 100%;
+    height: 340px;
+
+    overflow: hidden;
+
+    background-color: var(--celeste);
+    border-radius: 22px;
+}
+
+.discovery-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+
+/* Tablet */
+
+@media (max-width: 960px) {
+    .discovery-section {
+        gap: 24px;
+        padding: 28px;
+    }
+
+    .discovery-content {
+        padding-left: 8px;
+    }
+
+    .discovery-image {
+        height: 300px;
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .discovery-section {
+        grid-template-columns: 1fr;
+        gap: 24px;
+
+        margin-bottom: 75px;
+        padding: 24px;
+
+        border-radius: 22px;
+    }
+
+    .discovery-content {
+        padding: 8px 0 0;
+    }
+
+    .discovery-content h2 {
+        font-size: 2.1rem;
+    }
+
+    .discovery-image {
+        height: 240px;
+        border-radius: 16px;
+    }
+}
+
+
+/* ==================================================
+   12. FOOTER
+================================================== */
+
+.footer {
+    background-color: var(--blue-dark);
+    color: var(--white);
+
+    padding-top: 65px;
+}
+
+.footer-container {
+    display: grid;
+
+    grid-template-columns: 1.5fr 0.8fr 0.8fr 1fr;
+    gap: 48px;
+
+    padding-bottom: 55px;
+}
+
+
+/* Footer brand */
+
+.footer .brand-name {
+    color: var(--white);
+}
+
+.footer .brand-icon {
+    background-color: var(--celeste);
+}
+
+.footer-brand > p {
+    max-width: 290px;
+    margin-top: 20px;
+
+    color: #C6D8E1;
+    font-size: 0.88rem;
+    line-height: 1.9;
+}
+
+
+/* Footer columns */
+
+.footer-column h3 {
+    margin-bottom: 22px;
+
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.footer-column ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-column a,
+.footer-column p {
+    color: #C6D8E1;
+    font-size: 0.85rem;
+
+    transition: color var(--transition);
+}
+
+.footer-column a:hover {
+    color: var(--orange);
+}
+
+.footer-column p {
+    line-height: 1.9;
+}
+
+
+/* Copyright row */
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footer-bottom p {
+    color: #C6D8E1;
+    font-size: 0.8rem;
+}
+
+
+/* ==================================================
+   13. ANIMATIONS
+================================================== */
+
+@keyframes slideFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes imageReveal {
+    from {
+        opacity: 0.65;
+        transform: scale(1.04);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+

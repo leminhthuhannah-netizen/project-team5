@@ -1,0 +1,477 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Favorites | Savorly</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
+    <!-- Favorites CSS -->
+    <link rel="stylesheet" href="/assets/css/favorites.css">
+
+    <!-- Font Awesome -->
+    <script
+        src="https://kit.fontawesome.com/61c4a4816c.js"
+        crossorigin="anonymous"
+    ></script>
+</head>
+
+<body>
+
+    <!--  HEADER  -->
+    <header class="header">
+        <nav class="navbar container">
+
+            <!-- Brand -->
+            <a href="index.html" class="brand" aria-label="Savorly home">
+                <span class="brand-icon">S</span>
+                <span class="brand-name">savorly<span>.</span></span>
+            </a>
+
+            <!-- Navigation links -->
+            <ul class="nav-menu">
+                <li>
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li>
+                    <a href="explore.html" class="nav-link">Explore</a>
+                </li>
+                <li>
+                    <a href="favorites.html" class="nav-link active">
+                        <span class="favorite-icon "><i class="fa-regular fa-heart"></i></span>
+                        Favorites
+                    </a>
+                </li>
+                <li>
+                    <a href="add-recipe.html" class="nav-link">
+                        <span ><i class="fa-solid fa-plus"></i></span>
+                        Add Recipe
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                
+            </ul>
+
+            <!-- Search -->
+            <a href="explore.html" class="search-button">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+
+        </nav>
+    </header>
+
+
+    <!--  MAIN  -->
+    <main class="favorites-page">
+
+        <!-- 01. FAVORITES HERO -->
+        <section class="favorites-hero">
+            <div class="container favorites-hero-container">
+
+                <div class="favorites-hero-content">
+                    <p class="favorites-eyebrow">
+                        YOUR PERSONAL COLLECTION
+                    </p>
+
+                    <h1>
+                        Your Favorite
+                        <span>Recipes</span>
+                        <i class="fa-solid fa-heart favorites-title-heart"></i>
+                    </h1>
+
+                    <p class="favorites-description">
+                        All the dishes you love, gathered in one place.
+                        Keep your favorite recipes close and find
+                        inspiration whenever you need it.
+                    </p>
+
+                    <!-- Recipe Counter -->
+                    <div class="favorites-counter">
+                        <i class="fa-solid fa-heart"></i>
+
+                        <span>
+                            <strong class="favorites-count">3</strong>
+                            saved recipes
+                        </span>
+                    </div>
+                </div>
+
+                <div class="favorites-hero-decoration" >
+                    <i class="fa-solid fa-heart heart-decoration heart-decoration-one"></i>
+                    <i class="fa-solid fa-heart heart-decoration heart-decoration-two"></i>
+                    <i class="fa-solid fa-heart heart-decoration heart-decoration-three"></i>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 02. SAVED RECIPES -->
+        <section class="favorites-section section-padding">
+            <div class="container">
+
+                <div class="favorites-section-heading">
+                    <div>
+                        <p class="favorites-eyebrow">YOUR COLLECTION</p>
+
+                        <h2>Recipes You Love</h2>
+                    </div>
+
+                    <a href="explore.html" class="favorites-explore-link">
+                        Discover More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+
+                <!--
+                    SAVED RECIPES GRID
+
+                    These are sample cards for the HTML layout.
+                    JavaScript will render actual saved recipes later.
+                -->
+                <div class="favorites-grid" id="favorites-grid">
+
+                    <!-- Recipe 1: Pasta -->
+                    <article
+                        class="favorite-card"
+                        data-recipe-id="pasta"
+                    >
+                        <div class="favorite-card-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=85"
+                                alt="Fresh tomato pasta with herbs"
+                                loading="lazy"
+                            >
+
+                            <span class="favorite-category">
+                                Lunch
+                            </span>
+
+                            <button
+                                type="button"
+                                class="favorite-remove-button"
+                                aria-label="Remove Fresh Tomato Pasta from favorites"
+                                title="Remove from favorites"
+                            >
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+
+                        <div class="favorite-card-content">
+                            <div class="favorite-card-meta">
+                                <span>
+                                    <i class="fa-regular fa-clock"></i>
+                                    25 min
+                                </span>
+
+                                <span class="favorite-difficulty">
+                                    Easy
+                                </span>
+                            </div>
+
+                            <h3>
+                                <a href="recipe.html?id=pasta">
+                                    Fresh Tomato Pasta
+                                </a>
+                            </h3>
+
+                            <p class="favorite-card-description">
+                                A simple and delicious pasta with
+                                fresh tomatoes and fragrant herbs.
+                            </p>
+
+                            <a
+                                href="recipe.html?id=pasta"
+                                class="favorite-view-button"
+                            >
+                                View Recipe
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+
+                    <!-- Recipe 2: Salad -->
+                    <article
+                        class="favorite-card"
+                        data-recipe-id="salad"
+                    >
+                        <div class="favorite-card-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=85"
+                                alt="Fresh garden salad with colorful vegetables"
+                                loading="lazy"
+                            >
+
+                            <span class="favorite-category">
+                                Healthy
+                            </span>
+
+                            <button
+                                type="button"
+                                class="favorite-remove-button"
+                                aria-label="Remove Garden Fresh Salad from favorites"
+                                title="Remove from favorites"
+                            >
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+
+                        <div class="favorite-card-content">
+                            <div class="favorite-card-meta">
+                                <span>
+                                    <i class="fa-regular fa-clock"></i>
+                                    15 min
+                                </span>
+
+                                <span class="favorite-difficulty">
+                                    Easy
+                                </span>
+                            </div>
+
+                            <h3>
+                                <a href="recipe.html?id=salad">
+                                    Garden Fresh Salad
+                                </a>
+                            </h3>
+
+                            <p class="favorite-card-description">
+                                A refreshing mix of crisp vegetables
+                                and a light, flavorful dressing.
+                            </p>
+
+                            <a
+                                href="recipe.html?id=salad"
+                                class="favorite-view-button"
+                            >
+                                View Recipe
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+
+                    <!-- Recipe 3: Chicken -->
+                    <article
+                        class="favorite-card"
+                        data-recipe-id="chicken"
+                    >
+                        <div class="favorite-card-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=85"
+                                alt="Roasted chicken served with herbs and vegetables"
+                                loading="lazy"
+                            >
+
+                            <span class="favorite-category">
+                                Dinner
+                            </span>
+
+                            <button
+                                type="button"
+                                class="favorite-remove-button"
+                                aria-label="Remove Herb Roasted Chicken from favorites"
+                                title="Remove from favorites"
+                            >
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+
+                        <div class="favorite-card-content">
+                            <div class="favorite-card-meta">
+                                <span>
+                                    <i class="fa-regular fa-clock"></i>
+                                    40 min
+                                </span>
+
+                                <span class="favorite-difficulty">
+                                    Medium
+                                </span>
+                            </div>
+
+                            <h3>
+                                <a href="recipe.html?id=chicken">
+                                    Herb Roasted Chicken
+                                </a>
+                            </h3>
+
+                            <p class="favorite-card-description">
+                                Tender chicken seasoned with aromatic
+                                herbs for a comforting meal.
+                            </p>
+
+                            <a
+                                href="recipe.html?id=chicken"
+                                class="favorite-view-button"
+                            >
+                                View Recipe
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+
+
+                <!-- 03. EMPTY STATE -->
+                <!-- Hidden by default. JavaScript will show this
+                     when there are no saved recipes. -->
+                <div class="favorites-empty" id="favorites-empty" hidden>
+
+                    <div class="favorites-empty-illustration">
+                        <i class="fa-regular fa-heart"></i>
+
+                        <span class="empty-sparkle empty-sparkle-one">
+                            ✦
+                        </span>
+
+                        <span class="empty-sparkle empty-sparkle-two">
+                            ✧
+                        </span>
+                    </div>
+
+                    <p class="favorites-eyebrow">
+                        YOUR COLLECTION IS WAITING
+                    </p>
+
+                    <h2>No favorites yet.</h2>
+
+                    <p class="favorites-empty-description">
+                        You haven't saved any recipes yet.
+                        Explore our collection and tap the heart
+                        on a recipe to keep it here.
+                    </p>
+
+                    <a
+                        href="explore.html"
+                        class="button button-primary"
+                    >
+                        Explore Recipes
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 04. BOTTOM CTA -->
+        <section class="favorites-cta">
+            <div class="container favorites-cta-content">
+
+                <div class="favorites-cta-icon">
+                    <i class="fa-solid fa-utensils"></i>
+                </div>
+
+                <div class="favorites-cta-text">
+                    <h2>Something delicious is waiting.</h2>
+
+                    <p>
+                        Discover more recipes and find your next
+                        favorite meal.
+                    </p>
+                </div>
+
+                <a href="explore.html" class="button button-primary">
+                    Explore More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!--  FOOTER  -->
+    <footer class="footer">
+
+        <div class="footer-container container">
+
+            <!-- Brand information -->
+            <div class="footer-brand">
+                <a href="index.html" class="brand">
+                    <span class="brand-icon">S</span>
+                    <span class="brand-name">savorly<span>.</span></span>
+                </a>
+
+                <p>
+                    Discover delicious food, explore new recipes
+                    and bring a little more joy to your kitchen.
+                </p>
+            </div>
+
+
+            <!-- Quick links -->
+            <div class="footer-column">
+                <h3>Explore</h3>
+
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="explore.html">All Recipes</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+
+
+            <!-- Recipe categories -->
+            <div class="footer-column">
+                <h3>Categories</h3>
+
+                <ul>
+                    <li><a href="explore.html?category=breakfast">
+                        Breakfast
+                    </a></li>
+
+                    <li><a href="explore.html?category=lunch">
+                        Lunch
+                    </a></li>
+
+                    <li><a href="explore.html?category=dinner">
+                        Dinner
+                    </a></li>
+
+                    <li><a href="explore.html?category=dessert">
+                        Dessert
+                    </a></li>
+                </ul>
+            </div>
+
+
+            <!-- Project information -->
+            <div class="footer-column">
+                <h3>About Savorly</h3>
+
+                <p>
+                    A recipe discovery project made for food lovers
+                    and curious home cooks.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom container">
+            <p>© 2026 Savorly. Made with care.</p>
+            <p>Discover it. Cook it. Love it.</p>
+        </div>
+
+    </footer>
+</body>
+</html>

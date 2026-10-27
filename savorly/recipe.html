@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recipe Details | Savorly</title>
+    <link rel="stylesheet" href="/assets/css/styles.css"> 
+    <link rel="stylesheet" href="/assets/css/recipe.css">
+    <script
+        src="https://kit.fontawesome.com/61c4a4816c.js"
+        crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+    <!-- 
+         2. MAIN RECIPE CONTENT
+          -->
+    <main class="recipe-page">
+
+        <!-- Breadcrumb -->
+
+        <section class="recipe-breadcrumb container">
+            <a href="index.html">Home</a>
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+            <a href="explore.html">Explore</a>
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+            <span class="breadcrumb-current">
+                Recipe Details
+            </span>
+        </section>
+
+
+        <!-- Recipe Hero -->
+
+        <section class="recipe-hero container">
+
+            <div class="recipe-hero-image">
+                <img
+                    id="recipe-image"
+                    src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1200&q=85"
+                    alt="Fresh tomato pasta">
+
+                <span class="recipe-image-label">
+                    <i class="fa-solid fa-utensils"></i>
+                    Made with love
+                </span>
+            </div>
+
+
+            <div class="recipe-hero-content">
+
+                <div class="recipe-category-list" id="recipe-categories">
+                    <span class="recipe-category">Lunch</span>
+                    <span class="recipe-category">Easy</span>
+                </div>
+
+                <p class="recipe-eyebrow">
+                    A LITTLE INSPIRATION FOR YOUR KITCHEN
+                </p>
+
+                <h1 id="recipe-title">
+                    Fresh Tomato Pasta
+                </h1>
+
+                <p class="recipe-description" id="recipe-description">
+                    A delicious pasta dish made with fresh tomatoes,
+                    fragrant basil and a touch of olive oil.
+                    Simple ingredients, beautiful flavors.
+                </p>
+
+
+                <!-- Author information -->
+
+                <div class="recipe-author">
+
+                    <div class="recipe-author-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <div class="recipe-author-info">
+                        <span class="recipe-author-label">
+                            Recipe by
+                        </span>
+
+                        <span
+                            class="recipe-author-name"
+                            id="recipe-author">
+                            Savorly Kitchen
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <!-- Hero actions -->
+
+                <div class="recipe-hero-actions">
+
+                    <button
+                        type="button"
+                        class="button button-primary recipe-save-button"
+                        id="recipe-favorite-button"
+                        aria-label="Save recipe to favorites">
+
+                        <i class="fa-regular fa-heart"></i>
+                        <span>Save Recipe</span>
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="recipe-share-button"
+                        id="recipe-share-button">
+
+                        <i class="fa-solid fa-share-nodes"></i>
+                        Share Recipe
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 
+             3. RECIPE QUICK INFORMATION
+              -->
+
+        <section class="recipe-overview container">
+
+            <div class="recipe-overview-card">
+
+                <div class="overview-item">
+                    <div class="overview-icon">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <div>
+                        <span class="overview-label">
+                            Prep Time
+                        </span>
+
+                        <strong id="recipe-prep-time">
+                            10 min
+                        </strong>
+                    </div>
+                </div>
+
+
+                <div class="overview-item">
+                    <div class="overview-icon">
+                        <i class="fa-solid fa-fire-burner"></i>
+                    </div>
+
+                    <div>
+                        <span class="overview-label">
+                            Cooking Time
+                        </span>
+
+                        <strong id="recipe-cooking-time">
+                            15 min
+                        </strong>
+                    </div>
+                </div>
+
+
+                <div class="overview-item">
+                    <div class="overview-icon">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                    </div>
+
+                    <div>
+                        <span class="overview-label">
+                            Total Time
+                        </span>
+
+                        <strong id="recipe-total-time">
+                            25 min
+                        </strong>
+                    </div>
+                </div>
+
+
+                <div class="overview-item">
+                    <div class="overview-icon">
+                        <i class="fa-solid fa-signal"></i>
+                    </div>
+
+                    <div>
+                        <span class="overview-label">
+                            Difficulty
+                        </span>
+
+                        <strong id="recipe-difficulty">
+                            Easy
+                        </strong>
+                    </div>
+                </div>
+
+
+                <div class="overview-item">
+                    <div class="overview-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+                        <span class="overview-label">
+                            Servings
+                        </span>
+
+                        <strong id="recipe-servings">
+                            2 people
+                        </strong>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 
+             4. INGREDIENTS & INSTRUCTIONS
+              -->
+
+        <section class="recipe-details container">
+
+            <!-- Ingredients -->
+
+            <aside class="ingredients-section">
+
+                <div class="section-heading">
+                    <h2>Ingredients</h2>             
+                </div>
+
+
+                <div class="servings-control">
+
+                    <span>Servings</span>
+
+                    <div class="servings-buttons">
+                        <button
+                            type="button"
+                            id="servings-decrease"
+                            aria-label="Decrease servings">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+
+                        <strong id="servings-current">2</strong>
+
+                        <button
+                            type="button"
+                            id="servings-increase"
+                            aria-label="Increase servings">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <ul class="ingredients-list" id="recipe-ingredients">
+
+                    <li class="ingredient-item">
+                        <label>
+                            <input type="checkbox">
+                            <span>200 g pasta</span>
+                        </label>
+                    </li>
+
+                    <li class="ingredient-item">
+                        <label>
+                            <input type="checkbox">
+                            <span>3 fresh tomatoes</span>
+                        </label>
+                    </li>
+
+                    <li class="ingredient-item">
+                        <label>
+                            <input type="checkbox">
+                            <span>2 cloves garlic</span>
+                        </label>
+                    </li>
+
+                    <li class="ingredient-item">
+                        <label>
+                            <input type="checkbox">
+                            <span>2 tablespoons olive oil</span>
+                        </label>
+                    </li>
+
+                    <li class="ingredient-item">
+                        <label>
+                            <input type="checkbox">
+                            <span>Fresh basil leaves</span>
+                        </label>
+                    </li>
+
+                    <li class="ingredient-item">
+                        <label>
+                            <input type="checkbox">
+                            <span>Salt and black pepper</span>
+                        </label>
+                    </li>
+
+                </ul>
+
+            </aside>
+
+
+            <!-- Instructions -->
+
+            <div class="instructions-section">
+
+                <div class="section-heading">
+                    <h2>How to Make It</h2>
+                </div>
+                <div
+                    class="instructions-list"
+                    id="recipe-instructions">
+
+                    <article class="instruction-step">
+
+                        <div class="instruction-step-number">
+                            01
+                        </div>
+
+                        <div class="instruction-step-content">
+
+                            <h3>Prepare the Ingredients</h3>
+
+                            <p>
+                                Wash the tomatoes and basil.
+                                Mince the garlic and chop the tomatoes
+                                into small pieces.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="instruction-step">
+
+                        <div class="instruction-step-number">
+                            02
+                        </div>
+
+                        <div class="instruction-step-content">
+
+                            <h3>Cook the Pasta</h3>
+
+                            <p>
+                                Bring a pot of salted water to a boil.
+                                Cook the pasta according to the
+                                package instructions, then drain it.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="instruction-step">
+
+                        <div class="instruction-step-number">
+                            03
+                        </div>
+
+                        <div class="instruction-step-content">
+
+                            <h3>Make the Tomato Sauce</h3>
+
+                            <p>
+                                Heat olive oil in a pan.
+                                Add the garlic and tomatoes,
+                                then cook until the tomatoes soften.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="instruction-step">
+
+                        <div class="instruction-step-number">
+                            04
+                        </div>
+
+                        <div class="instruction-step-content">
+
+                            <h3>Combine and Serve</h3>
+
+                            <p>
+                                Add the cooked pasta to the sauce.
+                                Mix well, season to taste and finish
+                                with fresh basil before serving.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 
+             5. CHEF'S TIPS
+              -->
+
+        <section class="recipe-tips container" id="recipe-tips-section">
+
+            <div class="recipe-tips-icon">
+                <i class="fa-solid fa-lightbulb"></i>
+            </div>
+
+            <div class="recipe-tips-content">
+
+                <p class="recipe-section-eyebrow">
+                    A LITTLE SECRET
+                </p>
+
+                <h2>Chef's Tips</h2>
+
+                <p id="recipe-tips">
+                    Reserve a little pasta water before draining.
+                    Adding a splash to the sauce can help it coat
+                    the pasta more evenly.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 
+             6. RELATED RECIPES
+              -->
+
+        <section class="related-recipes container">
+
+            <div class="related-recipes-heading">
+
+                <div>
+                    <p class="recipe-section-eyebrow">
+                        MORE DELICIOUS IDEAS
+                    </p>
+
+                    <h2>You May Also Like</h2>
+                </div>
+
+                <a href="explore.html" class="related-recipes-link">
+                    Explore More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="related-recipes-grid" id="related-recipes-grid">
+
+                <!-- Sample card 1 -->
+
+                <article class="related-recipe-card">
+
+                    <a
+                        href="recipe.html?id=salad"
+                        class="related-recipe-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80"
+                            alt="Garden fresh salad">
+
+                    </a>
+
+                    <div class="related-recipe-content">
+
+                        <span class="related-recipe-category">
+                            Healthy
+                        </span>
+
+                        <h3>
+                            <a href="recipe.html?id=salad">
+                                Garden Fresh Salad
+                            </a>
+                        </h3>
+
+                        <div class="related-recipe-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                15 min
+                            </span>
+
+                            <span>Easy</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Sample card 2 -->
+
+                <article class="related-recipe-card">
+
+                    <a
+                        href="recipe.html?id=chicken"
+                        class="related-recipe-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=600&q=80"
+                            alt="Roasted chicken with vegetables">
+
+                    </a>
+
+                    <div class="related-recipe-content">
+
+                        <span class="related-recipe-category">
+                            Dinner
+                        </span>
+
+                        <h3>
+                            <a href="recipe.html?id=chicken">
+                                Herb Roasted Chicken
+                            </a>
+                        </h3>
+
+                        <div class="related-recipe-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                40 min
+                            </span>
+
+                            <span>Medium</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Sample card 3 -->
+
+                <article class="related-recipe-card">
+
+                    <a
+                        href="recipe.html?id=berry-bowl"
+                        class="related-recipe-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=600&q=80"
+                            alt="Fresh fruit and yogurt bowl">
+
+                    </a>
+
+                    <div class="related-recipe-content">
+
+                        <span class="related-recipe-category">
+                            Breakfast
+                        </span>
+
+                        <h3>
+                            <a href="recipe.html?id=berry-bowl">
+                                Berry Breakfast Bowl
+                            </a>
+                        </h3>
+
+                        <div class="related-recipe-meta">
+                            <span>
+                                <i class="fa-regular fa-clock"></i>
+                                10 min
+                            </span>
+
+                            <span>Easy</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- 
+             7. RECIPE NOT FOUND STATE
+              -->
+
+        <section class="recipe-not-found container" id="recipe-not-found" hidden>
+
+            <div class="recipe-not-found-icon">
+                <i class="fa-solid fa-utensils"></i>
+            </div>
+
+            <h1>Recipe Not Found</h1>
+
+            <p>
+                Sorry, we couldn't find this recipe.
+                It may have been removed or the link may be incorrect.
+            </p>
+
+            <a href="explore.html" class="button button-primary">
+                <i class="fa-solid fa-compass"></i>
+                Explore Recipes
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- 
+         8. FOOTER
+          -->
+
+    <footer class="footer">
+
+        <div class="footer-container container">
+
+            <!-- Brand information -->
+            <div class="footer-brand">
+                <a href="index.html" class="brand">
+                    <span class="brand-icon">S</span>
+                    <span class="brand-name">savorly<span>.</span></span>
+                </a>
+
+                <p>
+                    Discover delicious food, explore new recipes
+                    and bring a little more joy to your kitchen.
+                </p>
+            </div>
+
+
+            <!-- Quick links -->
+            <div class="footer-column">
+                <h3>Explore</h3>
+
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="explore.html">All Recipes</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+
+
+            <!-- Recipe categories -->
+            <div class="footer-column">
+                <h3>Categories</h3>
+
+                <ul>
+                    <li><a href="explore.html?category=breakfast">
+                        Breakfast
+                    </a></li>
+
+                    <li><a href="explore.html?category=lunch">
+                        Lunch
+                    </a></li>
+
+                    <li><a href="explore.html?category=dinner">
+                        Dinner
+                    </a></li>
+
+                    <li><a href="explore.html?category=dessert">
+                        Dessert
+                    </a></li>
+                </ul>
+            </div>
+
+
+            <!-- Project information -->
+            <div class="footer-column">
+                <h3>About Savorly</h3>
+
+                <p>
+                    A recipe discovery project made for food lovers
+                    and curious home cooks.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom container">
+            <p>© 2026 Savorly. Made with care.</p>
+            <p>Discover it. Cook it. Love it.</p>
+        </div>
+
+    </footer>
+
+</body>
+</html>

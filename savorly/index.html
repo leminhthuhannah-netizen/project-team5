@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savorly | Discover Your Next Favorite Meal</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <script src="https://kit.fontawesome.com/61c4a4816c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar container">
+
+            <!-- Brand -->
+            <a href="index.html" class="brand" aria-label="Savorly home">
+                <span class="brand-icon">S</span>
+                <span class="brand-name">savorly<span>.</span></span>
+            </a>
+
+            <!-- Navigation links -->
+            <ul class="nav-menu">
+                <li>
+                    <a href="index.html" class="nav-link active">Home</a>
+                </li>
+                <li>
+                    <a href="explore.html" class="nav-link">Explore</a>
+                </li>
+                <li>
+                    <a href="favorites.html" class="nav-link">
+                        <span class="favorite-icon"><i class="fa-regular fa-heart"></i></span>
+                        Favorites
+                    </a>
+                </li>
+                <li>
+                    <a href="add-recipe.html" class="nav-link">
+                        <span ><i class="fa-solid fa-plus"></i></span>
+                        Add Recipe
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                
+            </ul>
+
+            <!-- Search -->
+            <a href="explore.html" class="search-button">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+
+        </nav>
+    </header>
+
+
+    <main>
+        <section class="hero container" aria-label="Featured recipes">
+
+            <div class="hero-slider">
+
+                <!-- Slide 1 -->
+                <article class="hero-slide active"
+                         data-slide="0">
+
+                    <div class="hero-content">
+                        <span class="eyebrow">TODAY'S SPECIAL</span>
+
+                        <h1>Fresh Pasta<br>With Tomato Sauce</h1>
+
+                        <p class="hero-description">
+                            A comforting Italian classic made with
+                            fresh tomatoes, fragrant herbs and love.
+                        </p>
+
+                        <div class="hero-meta">
+                            <span><i class="fa-regular fa-clock"></i> 25 minutes</span>
+                            <span>·</span>
+                            <span>Easy to make</span>
+                        </div>
+
+                        <a href="recipe.html?id=pasta"
+                           class="button button-primary">
+                            Explore Recipe
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1200&q=85"
+                            alt="Fresh pasta served with herbs and tomato sauce">
+                    </div>
+
+                </article>
+
+
+                <!-- Slide 2 -->
+                <article class="hero-slide" data-slide="1">
+
+                    <div class="hero-content">
+                        <span class="eyebrow">A LITTLE COMFORT</span>
+
+                        <h2>Golden<br>Chicken & Herbs</h2>
+
+                        <p class="hero-description">
+                            Juicy roasted chicken with aromatic herbs
+                            for a warm and satisfying meal.
+                        </p>
+
+                        <div class="hero-meta">
+                            <span><i class="fa-regular fa-clock"></i> 40 minutes</span>
+                            <span>·</span>
+                            <span>Easy to make</span>
+                        </div>
+
+                        <a href="recipe.html?id=chicken"
+                           class="button button-primary">
+                            Explore Recipe
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=1200&q=85"
+                            alt="Roasted chicken served with vegetables">
+                    </div>
+
+                </article>
+
+
+                <!-- Slide 3 -->
+                <article class="hero-slide" data-slide="2">
+
+                    <div class="hero-content">
+                        <span class="eyebrow">LIGHT & DELICIOUS</span>
+
+                        <h2>Colorful<br>Garden Salad</h2>
+
+                        <p class="hero-description">
+                            Crisp vegetables, fresh greens and a
+                            bright dressing for a refreshing bite.
+                        </p>
+
+                        <div class="hero-meta">
+                            <span><i class="fa-regular fa-clock"></i> 15 minutes</span>
+                            <span>·</span>
+                            <span>Beginner friendly</span>
+                        </div>
+
+                        <a href="recipe.html?id=salad"
+                           class="button button-primary">
+                            Explore Recipe
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=85"
+                            alt="Colorful fresh vegetable salad">
+                    </div>
+
+                </article>
+
+
+                <!-- Slide 4 -->
+                <article class="hero-slide" data-slide="3">
+
+                    <div class="hero-content">
+                        <span class="eyebrow">SWEET MOMENTS</span>
+
+                        <h2>Berry<br>Breakfast Bowl</h2>
+
+                        <p class="hero-description">
+                            A bright and fruity bowl with berries
+                            to make your morning feel special.
+                        </p>
+
+                        <div class="hero-meta">
+                            <span><i class="fa-regular fa-clock"></i> 10 minutes</span>
+                            <span>·</span>
+                            <span>Super easy</span>
+                        </div>
+
+                        <a href="recipe.html?id=berry-bowl"
+                           class="button button-primary">
+                            Explore Recipe
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=1200&q=85"
+                            alt="Fresh fruit and berries prepared for breakfast">
+                    </div>
+
+                </article>
+
+
+                <!-- Slider controls -->
+                <div class="slider-controls"
+                     aria-label="Featured recipe controls">
+
+                    <button type="button"
+                            class="slider-arrow"
+                            id="prev-slide"
+                            aria-label="Previous recipe">
+                        ←
+                    </button>
+
+                    <div class="slider-pagination"
+                         aria-label="Choose a recipe">
+
+                        <button type="button"
+                                class="slider-dot active"
+                                data-target="0"
+                                aria-label="Show recipe 1"
+                                aria-current="true"></button>
+
+                        <button type="button"
+                                class="slider-dot"
+                                data-target="1"
+                                aria-label="Show recipe 2"></button>
+
+                        <button type="button"
+                                class="slider-dot"
+                                data-target="2"
+                                aria-label="Show recipe 3"></button>
+
+                        <button type="button"
+                                class="slider-dot"
+                                data-target="3"
+                                aria-label="Show recipe 4"></button>
+
+                    </div>
+
+                    <button type="button"
+                            class="slider-arrow"
+                            id="next-slide"
+                            aria-label="Next recipe">
+                        →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="popular-section section container">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">MADE FOR YOUR TABLE</span>
+                    <h2>Recipes to fall in love with.</h2>
+                    <p>
+                        Simple ingredients, beautiful dishes
+                        and little moments worth sharing.
+                    </p>
+                </div>
+
+                <a href="explore.html" class="text-link">
+                    View all recipes →
+                </a>
+            </div>
+
+
+            <div class="recipe-grid">
+
+                <!-- Recipe Card 1 -->
+                <article class="recipe-card">
+
+                    <a href="recipe.html?id=pasta"
+                       class="recipe-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=85"
+                            alt="Fresh Italian pasta"
+                            loading="lazy">
+                    </a>
+
+                    <div class="recipe-info">
+                        <span class="recipe-category">ITALIAN</span>
+
+                        <h3>
+                            <a href="recipe.html?id=pasta">
+                                Fresh Tomato Pasta
+                            </a>
+                        </h3>
+
+                        <p>
+                            A classic pasta dish with fresh tomatoes
+                            and fragrant herbs.
+                        </p>
+
+                        <div class="recipe-bottom">
+                            <span><i class="fa-regular fa-clock"></i> 25 min</span>
+
+                            <a href="recipe.html?id=pasta"
+                               class="button button-outline">
+                                View Recipe
+                            </a>
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <!-- Recipe Card 2 -->
+                <article class="recipe-card">
+
+                    <a href="recipe.html?id=salad"
+                       class="recipe-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=85"
+                            alt="Fresh colorful garden salad"
+                            loading="lazy">
+                    </a>
+
+                    <div class="recipe-info">
+                        <span class="recipe-category">HEALTHY</span>
+
+                        <h3>
+                            <a href="recipe.html?id=salad">
+                                Garden Fresh Salad
+                            </a>
+                        </h3>
+
+                        <p>
+                            A colorful mix of crisp greens and
+                            refreshing vegetables.
+                        </p>
+
+                        <div class="recipe-bottom">
+                            <span><i class="fa-regular fa-clock"></i> 15 min</span>
+
+                            <a href="recipe.html?id=salad"
+                               class="button button-outline">
+                                View Recipe
+                            </a>
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <!-- Recipe Card 3 -->
+                <article class="recipe-card">
+
+                    <a href="recipe.html?id=chicken"
+                       class="recipe-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=85"
+                            alt="Roasted chicken with herbs"
+                            loading="lazy">
+                    </a>
+
+                    <div class="recipe-info">
+                        <span class="recipe-category">DINNER</span>
+
+                        <h3>
+                            <a href="recipe.html?id=chicken">
+                                Herb Roasted Chicken
+                            </a>
+                        </h3>
+
+                        <p>
+                            Tender chicken with herbs for a
+                            comforting homemade dinner.
+                        </p>
+
+                        <div class="recipe-bottom">
+                            <span><i class="fa-regular fa-clock"></i> 40 min</span>
+
+                            <a href="recipe.html?id=chicken"
+                               class="button button-outline">
+                                View Recipe
+                            </a>
+                        </div>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+       <!-- slider discovery -->
+        <section class="discovery-section container">
+
+            <div class="discovery-content">
+                <span class="eyebrow">YOUR NEXT FAVORITE DISH</span>
+
+                <h2>Not sure what to cook today?</h2>
+
+                <p>
+                    Explore new flavors, discover simple recipes
+                    and find inspiration for your next meal.
+                </p>
+
+                <a href="explore.html" class="button button-primary">
+                    Discover More Recipes →
+                </a>
+            </div>
+
+            <div class="discovery-image">
+                <img
+                    src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1000&q=85"
+                    alt="A warm, bright kitchen ready for cooking"
+                    loading="lazy">
+            </div>
+
+        </section>
+
+
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+
+        <div class="footer-container container">
+
+            <!-- Brand information -->
+            <div class="footer-brand">
+                <a href="index.html" class="brand">
+                    <span class="brand-icon">S</span>
+                    <span class="brand-name">savorly<span>.</span></span>
+                </a>
+
+                <p>
+                    Discover delicious food, explore new recipes
+                    and bring a little more joy to your kitchen.
+                </p>
+            </div>
+
+
+            <!-- Quick links -->
+            <div class="footer-column">
+                <h3>Explore</h3>
+
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="explore.html">All Recipes</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+
+
+            <!-- Recipe categories -->
+            <div class="footer-column">
+                <h3>Categories</h3>
+
+                <ul>
+                    <li><a href="explore.html?category=breakfast">
+                        Breakfast
+                    </a></li>
+
+                    <li><a href="explore.html?category=lunch">
+                        Lunch
+                    </a></li>
+
+                    <li><a href="explore.html?category=dinner">
+                        Dinner
+                    </a></li>
+
+                    <li><a href="explore.html?category=dessert">
+                        Dessert
+                    </a></li>
+                </ul>
+            </div>
+
+
+            <!-- Project information -->
+            <div class="footer-column">
+                <h3>About Savorly</h3>
+
+                <p>
+                    A recipe discovery project made for food lovers
+                    and curious home cooks.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom container">
+            <p>© 2026 Savorly. Made with care.</p>
+            <p>Discover it. Cook it. Love it.</p>
+        </div>
+
+    </footer>
+</body>
+</html>

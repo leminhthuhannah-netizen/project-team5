@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Share a Recipe | Savorly</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/about.css">
+    <link rel="stylesheet" href="/assets/css/favorites.css">
+
+
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="/assets/css/add-recipe.css">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/61c4a4816c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar container">
+
+            <!-- Brand -->
+            <a href="index.html" class="brand" aria-label="Savorly home">
+                <span class="brand-icon">S</span>
+                <span class="brand-name">savorly<span>.</span></span>
+            </a>
+
+            <!-- Navigation links -->
+            <ul class="nav-menu">
+                <li>
+                    <a href="index.html" class="nav-link ">Home</a>
+                </li>
+                <li>
+                    <a href="explore.html" class="nav-link ">Explore</a>
+                </li>
+                <li>
+                    <a href="favorites.html" class="nav-link">
+                        <span class="favorite-icon"><i class="fa-regular fa-heart"></i></span>
+                        Favorites
+                    </a>
+                </li>
+                <li>
+                    <a href="add-recipe.html" class="nav-link active">
+                        <span ><i class="fa-solid fa-plus"></i></span>
+                        Add Recipe
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                
+            </ul>
+
+            <!-- Search -->
+            <a href="explore.html" class="search-button">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+
+        </nav>
+    </header>
+
+
+    <main class="add-recipe-page">
+
+        <!-- Page Introduction -->
+        <section class="add-recipe-intro container">
+            <span class="add-recipe-eyebrow">
+                <i class="fa-solid fa-utensils"></i>
+                YOUR KITCHEN, YOUR STORY
+            </span>
+
+            <h1>Share Your <span>Recipe</span></h1>
+
+            <p>
+                Have a delicious recipe to share?
+                Add it to Savorly and inspire someone to cook today.
+            </p>
+        </section>
+
+
+        <!-- Recipe Form -->
+        <section class="add-recipe-section container">
+
+            <form id="add-recipe-form" class="recipe-form">
+
+                <!-- Basic Information -->
+                <div class="form-section">
+
+                    <div class="form-section-heading">
+                        <span class="form-section-icon">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </span>
+
+                        <div>
+                            <h2>Basic Information</h2>
+                            <p>Tell us a little about your dish.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipe-name">Recipe Name *</label>
+
+                        <input
+                            type="text"
+                            id="recipe-name"
+                            name="title"
+                            placeholder="e.g. Creamy Mushroom Pasta"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipe-description">Description *</label>
+
+                        <textarea
+                            id="recipe-description"
+                            name="description"
+                            rows="3"
+                            placeholder="What makes this dish special?"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipe-image">Recipe Image URL</label>
+
+                        <input
+                            type="url"
+                            id="recipe-image"
+                            name="image"
+                            placeholder="https://example.com/your-dish.jpg"
+                        >
+
+                        <small>
+                            Paste an image URL. You can leave this blank for now.
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <!-- Recipe Category -->
+                <div class="form-section">
+
+                    <div class="form-section-heading">
+                        <span class="form-section-icon">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </span>
+
+                        <div>
+                            <h2>Recipe Category</h2>
+                            <p>Help others discover your dish.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipe-meal-type">Meal Type *</label>
+
+                        <select
+                            id="recipe-meal-type"
+                            name="mealType"
+                            required
+                        >
+                            <option value="">Choose a meal type</option>
+                            <option value="Breakfast">Breakfast</option>
+                            <option value="Lunch">Lunch</option>
+                            <option value="Dinner">Dinner</option>
+                            <option value="Dessert">Dessert</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipe-tags">Tags</label>
+
+                        <select id="recipe-tags" name="tags" multiple>
+                            <option value="Quick & Easy">Breakfast</option>
+                            <option value="Healthy">Healthy</option>
+                            <option value="Lunch">Lunch</option>
+                            <option value="Dinner">Dinner</option>
+                            <option value="Dessert">Dessert</option>
+                        </select>
+
+                        <small>
+                            Hold Ctrl (Windows) or Command (Mac) to select multiple tags.
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <!-- Cooking Information -->
+                <div class="form-section">
+
+                    <div class="form-section-heading">
+                        <span class="form-section-icon">
+                            <i class="fa-regular fa-clock"></i>
+                        </span>
+
+                        <div>
+                            <h2>Cooking Information</h2>
+                            <p>Give cooks an idea of what to expect.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="prep-time">Prep Time (minutes) *</label>
+
+                            <input
+                                type="number"
+                                id="prep-time"
+                                name="prepTime"
+                                min="0"
+                                placeholder="10"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cooking-time">Cooking Time (minutes) *</label>
+
+                            <input
+                                type="number"
+                                id="cooking-time"
+                                name="cookingTime"
+                                min="0"
+                                placeholder="20"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipe-difficulty">Difficulty *</label>
+
+                            <select
+                                id="recipe-difficulty"
+                                name="difficulty"
+                                required
+                            >
+                                <option value="">Choose difficulty</option>
+                                <option value="Easy">Easy</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Hard">Hard</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipe-servings">Servings *</label>
+
+                            <input
+                                type="number"
+                                id="recipe-servings"
+                                name="servings"
+                                min="1"
+                                placeholder="2"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Ingredients -->
+                <div class="form-section">
+
+                    <div class="form-section-heading">
+                        <span class="form-section-icon">
+                            <i class="fa-solid fa-carrot"></i>
+                        </span>
+
+                        <div>
+                            <h2>Ingredients</h2>
+                            <p>Add one ingredient per line.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipe-ingredients">Ingredient List *</label>
+
+                        <textarea
+                            id="recipe-ingredients"
+                            name="ingredients"
+                            rows="7"
+                            placeholder="200g pasta&#10;2 tomatoes&#10;2 cloves garlic&#10;1 tablespoon olive oil"
+                            required
+                        ></textarea>
+
+                        <small>
+                            Example: 200g pasta — write each ingredient on a new line.
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <!-- Instructions -->
+                <div class="form-section">
+
+                    <div class="form-section-heading">
+                        <span class="form-section-icon">
+                            <i class="fa-solid fa-list-ol"></i>
+                        </span>
+
+                        <div>
+                            <h2>Cooking Instructions</h2>
+                            <p>Write the steps in the order they should be followed.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipe-instructions">Instructions *</label>
+
+                        <textarea
+                            id="recipe-instructions"
+                            name="instructions"
+                            rows="8"
+                            placeholder="Wash and cut the tomatoes.&#10;Boil the pasta until tender.&#10;Heat olive oil and cook the garlic.&#10;Add the tomatoes and pasta, then mix well."
+                            required
+                        ></textarea>
+
+                        <small>
+                            Write one cooking step per line.
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <!-- Optional Tips -->
+                <div class="form-section">
+
+                    <div class="form-section-heading">
+                        <span class="form-section-icon">
+                            <i class="fa-regular fa-lightbulb"></i>
+                        </span>
+
+                        <div>
+                            <h2>Chef's Tips</h2>
+                            <p>Share an extra tip to make the dish even better.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipe-tips">Cooking Tips (Optional)</label>
+
+                        <textarea
+                            id="recipe-tips"
+                            name="tips"
+                            rows="3"
+                            placeholder="For extra flavor, add fresh basil before serving."
+                        ></textarea>
+                    </div>
+
+                </div>
+
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+
+                    <a href="explore.html" class="button button-secondary">
+                        Cancel
+                    </a>
+
+                    <button
+                        type="submit"
+                        id="submit-recipe-button"
+                        class="button button-primary"
+                    >
+                        <i class="fa-solid fa-plus"></i>
+                        Share Recipe
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    
+
+</body>
+</html>

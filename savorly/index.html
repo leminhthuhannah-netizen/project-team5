@@ -491,5 +491,19 @@
         </div>
 
     </footer>
+
+
+    
+    <!-- Nạp file chứa hàm loadRecipes -->
+    <script src="/assets/js/recipes.js"></script>
+
+    <!-- Sau đó mới gọi hàm -->
+    <script>
+        loadRecipes().then(data => {
+            console.log("Total recipes:", data.length);
+            console.log("First recipe:", data[0]);
+        });
+    </script>
+
 </body>
 </html>

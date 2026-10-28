@@ -1,0 +1,729 @@
+
+/* ==================================================
+   MY RECIPES PAGE
+   Uses global variables from styles.css
+================================================== */
+
+
+/* ==================================================
+   1. PAGE LAYOUT
+================================================== */
+
+.my-recipes-page {
+    padding-top: 82px;
+}
+
+.my-recipes-page section {
+    scroll-margin-top: 100px;
+}
+
+.my-recipes-page button,
+.my-recipes-page input,
+.my-recipes-page textarea,
+.my-recipes-page select {
+    font: inherit;
+}
+
+
+/* ==================================================
+   2. HERO SECTION
+================================================== */
+
+.my-recipes-hero {
+    padding: 72px 0;
+    background:
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(185, 232, 245, 0.65),
+            transparent 35%
+        ),
+        var(--celeste-light);
+}
+
+.my-recipes-hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 36px;
+}
+
+.my-recipes-heading {
+    max-width: 650px;
+}
+
+.my-recipes-heading .eyebrow {
+    margin-bottom: 14px;
+}
+
+.my-recipes-heading h1 {
+    margin-bottom: 18px;
+    letter-spacing: -1.5px;
+}
+
+.my-recipes-heading p {
+    max-width: 540px;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.my-recipes-add-button {
+    flex-shrink: 0;
+
+    background-color: var(--orange);
+    color: var(--white);
+
+    box-shadow: 0 8px 18px rgba(242, 154, 98, 0.2);
+}
+
+.my-recipes-add-button:hover {
+    background-color: var(--orange-dark);
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 25px rgba(242, 154, 98, 0.25);
+}
+
+
+/* ==================================================
+   3. RECIPE COLLECTION SECTION
+================================================== */
+
+.my-recipes-section {
+    min-height: 450px;
+    padding: 75px 0 100px;
+    background-color: var(--white);
+}
+
+.my-recipes-toolbar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 24px;
+    margin-bottom: 34px;
+}
+
+.my-recipes-toolbar h2 {
+    margin-bottom: 10px;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.my-recipes-toolbar p {
+    font-size: 0.92rem;
+}
+
+.my-recipes-count {
+    flex-shrink: 0;
+
+    padding: 8px 16px;
+
+    background-color: var(--celeste-light);
+    color: var(--blue);
+
+    border: 1px solid var(--border);
+    border-radius: 30px;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+
+/* ==================================================
+   4. USER RECIPE GRID
+================================================== */
+
+.my-recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 28px;
+    align-items: stretch;
+}
+
+
+/* Individual recipe card */
+
+.my-recipes-card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+
+    background-color: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.my-recipes-card:hover {
+    transform: translateY(-6px);
+
+    border-color: var(--celeste-dark);
+    box-shadow: var(--shadow-soft);
+}
+
+
+/* Card image */
+
+.my-recipes-card-image {
+    position: relative;
+    display: block;
+
+    height: 235px;
+    overflow: hidden;
+
+    background-color: var(--skin);
+}
+
+.my-recipes-card-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+.my-recipes-card:hover .my-recipes-card-image img {
+    transform: scale(1.06);
+}
+
+
+/* Category label */
+
+.my-recipes-card-category {
+    display: inline-block;
+    margin-bottom: 10px;
+
+    color: var(--orange-dark);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+
+/* Card content */
+
+.my-recipes-card-info {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 255px;
+    padding: 22px;
+}
+
+.my-recipes-card-info h3 {
+    margin-bottom: 10px;
+
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
+}
+
+.my-recipes-card-info h3 a {
+    transition: color var(--transition);
+}
+
+.my-recipes-card-info h3 a:hover {
+    color: var(--orange-dark);
+}
+
+.my-recipes-card-description {
+    display: -webkit-box;
+    overflow: hidden;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    margin-bottom: 18px;
+
+    font-size: 0.87rem;
+    line-height: 1.8;
+}
+
+
+/* Time and difficulty */
+
+.my-recipes-card-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 12px;
+    margin-top: auto;
+    padding: 14px 0;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--blue);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.my-recipes-card-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.my-recipes-card-meta i {
+    color: var(--orange-dark);
+}
+
+
+/* Edit and Delete actions */
+
+.my-recipes-card-actions {
+    display: flex;
+    gap: 10px;
+    padding-top: 4px;
+}
+
+.my-recipes-edit-button,
+.my-recipes-delete-button {
+    flex: 1;
+
+    min-height: 40px;
+    padding: 9px 12px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border: 1px solid transparent;
+    border-radius: 30px;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    transition: all var(--transition);
+}
+
+.my-recipes-edit-button {
+    background-color: var(--celeste-light);
+    color: var(--blue);
+
+    border-color: var(--celeste);
+}
+
+.my-recipes-edit-button:hover {
+    background-color: var(--celeste);
+    transform: translateY(-2px);
+}
+
+.my-recipes-delete-button {
+    background-color: #FFF1ED;
+    color: #B84B3B;
+
+    border-color: #F4D4CB;
+}
+
+.my-recipes-delete-button:hover {
+    background-color: #FBE0D8;
+    border-color: #E9B9AC;
+    transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   5. EMPTY STATE
+================================================== */
+
+.my-recipes-empty {
+    max-width: 650px;
+    margin: 15px auto 0;
+    padding: 55px 30px;
+
+    text-align: center;
+
+    background-color: var(--cream);
+    border: 1px dashed #E7D4C3;
+    border-radius: var(--radius-lg);
+}
+
+.my-recipes-empty[hidden],
+.my-recipe-form-section[hidden] {
+    display: none !important;
+}
+
+.my-recipes-empty-icon {
+    width: 76px;
+    height: 76px;
+
+    display: grid;
+    place-items: center;
+
+    margin: 0 auto 24px;
+
+    background-color: var(--celeste);
+    color: var(--blue);
+
+    border-radius: 50%;
+    font-size: 1.8rem;
+}
+
+.my-recipes-empty h3 {
+    margin-bottom: 12px;
+
+    font-family: var(--font-heading);
+    font-size: 1.65rem;
+}
+
+.my-recipes-empty p {
+    max-width: 420px;
+    margin: 0 auto 25px;
+
+    font-size: 0.92rem;
+    line-height: 1.9;
+}
+
+.my-recipes-empty .button {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+.my-recipes-empty .button:hover {
+    background-color: var(--orange-dark);
+    transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   6. ADD / EDIT FORM SECTION
+================================================== */
+
+.my-recipe-form-section {
+    padding: 80px 0;
+    background-color: var(--celeste-light);
+}
+
+.my-recipe-form-card {
+    max-width: 900px;
+    margin-inline: auto;
+    padding: 42px;
+
+    background-color: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-soft);
+}
+
+
+/* Form heading */
+
+.my-recipe-form-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 24px;
+    margin-bottom: 34px;
+    padding-bottom: 28px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.my-recipe-form-heading .eyebrow {
+    margin-bottom: 12px;
+}
+
+.my-recipe-form-heading h2 {
+    margin-bottom: 12px;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.my-recipe-form-heading p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+
+/* Close button */
+
+.my-recipe-close-button {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+
+    background-color: var(--celeste-light);
+    color: var(--blue);
+
+    border: 1px solid var(--border);
+    border-radius: 50%;
+
+    font-size: 1.1rem;
+
+    transition: all var(--transition);
+}
+
+.my-recipe-close-button:hover {
+    background-color: var(--celeste);
+    transform: rotate(90deg);
+}
+
+
+/* Form grid */
+
+.my-recipe-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+.my-recipe-form-grid .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    min-width: 0;
+}
+
+.my-recipe-form-grid .form-group-full {
+    grid-column: 1 / -1;
+}
+
+
+/* Labels */
+
+.my-recipe-form-grid label {
+    color: var(--blue-dark);
+
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+
+/* Inputs, selects and textareas */
+
+.my-recipe-form-grid input,
+.my-recipe-form-grid select,
+.my-recipe-form-grid textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 15px;
+
+    background-color: #FCFEFF;
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    outline: none;
+
+    font-size: 0.9rem;
+    line-height: 1.6;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background-color var(--transition);
+}
+
+.my-recipe-form-grid input,
+.my-recipe-form-grid select {
+    min-height: 48px;
+}
+
+.my-recipe-form-grid textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.my-recipe-form-grid input::placeholder,
+.my-recipe-form-grid textarea::placeholder {
+    color: #9AAEB8;
+    opacity: 1;
+}
+
+.my-recipe-form-grid input:focus,
+.my-recipe-form-grid select:focus,
+.my-recipe-form-grid textarea:focus {
+    background-color: var(--white);
+
+    border-color: var(--celeste-dark);
+    box-shadow: 0 0 0 4px rgba(114, 201, 226, 0.16);
+}
+
+.my-recipe-form-grid small {
+    color: var(--text-light);
+    font-size: 0.78rem;
+    line-height: 1.7;
+}
+
+
+/* Form actions */
+
+.my-recipe-form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 34px;
+    padding-top: 25px;
+
+    border-top: 1px solid var(--border);
+}
+
+.my-recipe-form-actions #save-recipe-button {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+.my-recipe-form-actions #save-recipe-button:hover {
+    background-color: var(--orange-dark);
+    transform: translateY(-2px);
+}
+
+.my-recipe-form-actions #discard-recipe-button {
+    background-color: var(--white);
+}
+
+
+/* ==================================================
+   7. ACCESSIBILITY
+================================================== */
+
+.my-recipes-page button:focus-visible,
+.my-recipes-page a:focus-visible {
+    outline: 3px solid var(--celeste-dark);
+    outline-offset: 3px;
+}
+
+
+/* ==================================================
+   8. TABLET
+================================================== */
+
+@media (max-width: 960px) {
+    .my-recipes-hero {
+        padding: 60px 0;
+    }
+
+    .my-recipes-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    .my-recipes-card-image {
+        height: 220px;
+    }
+
+    .my-recipe-form-card {
+        padding: 32px;
+    }
+}
+
+
+/* ==================================================
+   9. MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+    .my-recipes-page {
+        padding-top: 76px;
+    }
+
+    .my-recipes-hero {
+        padding: 45px 0;
+    }
+
+    .my-recipes-hero-content {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .my-recipes-heading h1 {
+        font-size: 2.5rem;
+    }
+
+    .my-recipes-heading p {
+        font-size: 0.92rem;
+    }
+
+    .my-recipes-add-button {
+        width: 100%;
+    }
+
+    .my-recipes-section {
+        padding: 50px 0 70px;
+    }
+
+    .my-recipes-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 26px;
+    }
+
+    .my-recipes-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .my-recipes-card-image {
+        height: 230px;
+    }
+
+    .my-recipes-card-info {
+        min-height: auto;
+        padding: 20px;
+    }
+
+    .my-recipes-empty {
+        padding: 40px 22px;
+        border-radius: var(--radius-md);
+    }
+
+    .my-recipes-empty h3 {
+        font-size: 1.4rem;
+    }
+
+    .my-recipe-form-section {
+        padding: 50px 0;
+    }
+
+    .my-recipe-form-card {
+        padding: 24px 18px;
+        border-radius: var(--radius-md);
+    }
+
+    .my-recipe-form-heading {
+        gap: 12px;
+    }
+
+    .my-recipe-form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .my-recipe-form-grid .form-group-full {
+        grid-column: auto;
+    }
+
+    .my-recipe-form-actions {
+        align-items: stretch;
+        flex-direction: column-reverse;
+    }
+
+    .my-recipe-form-actions .button {
+        width: 100%;
+    }
+}

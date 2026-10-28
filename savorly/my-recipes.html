@@ -1,0 +1,528 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Recipes | Savorly</title>
+
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/my-recipes.css">
+
+    <!-- Font Awesome icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="navbar container">
+
+            <!-- Brand -->
+            <a href="index.html" class="brand" >
+                <span class="brand-icon">S</span>
+                <span class="brand-name">savorly<span>.</span></span>
+            </a>
+
+            <!-- Navigation links -->
+            <ul class="nav-menu">
+                <li>
+                    <a href="index.html" class="nav-link ">Home</a>
+                </li>
+                <li>
+                    <a href="explore.html" class="nav-link">Explore</a>
+                </li>
+                <li>
+                    <a href="favorites.html" class="nav-link">
+                        <span class="favorite-icon"><i class="fa-regular fa-heart"></i></span>
+                        Favorites
+                    </a>
+                </li>
+                <li>
+                    <a href="my-recipes.html" class="nav-link active">
+                        <span ><i class="fa-solid fa-bowl-food"></i></span>
+                        My Recipe
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                
+            </ul>
+
+            <!-- Search -->
+            <a href="explore.html" class="search-button">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+
+        </nav>
+    </header>
+
+
+    <main class="my-recipes-page">
+
+        <!-- PAGE INTRODUCTION -->
+        <section class="my-recipes-hero">
+            <div class="container my-recipes-hero-content">
+
+                <div class="my-recipes-heading">
+                    <span class="eyebrow">YOUR PERSONAL COOKBOOK</span>
+
+                    <h1>My Recipes</h1>
+
+                    <p>
+                        Keep your favorite creations in one place.
+                        Create, organize, and share your own recipes.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    class="button my-recipes-add-button"
+                    id="add-recipe-button"
+                >
+                    <i class="fa-solid fa-plus"></i>
+                    Add New Recipe
+                </button>
+
+            </div>
+        </section>
+
+
+        <!-- RECIPE COLLECTION -->
+        <section class="my-recipes-section">
+            <div class="container">
+
+                <div class="my-recipes-toolbar">
+                    <div>
+                        <h2>My Collection</h2>
+                        <p>Your recipes, all in one place.</p>
+                    </div>
+
+                    <span
+                        class="my-recipes-count"
+                        id="my-recipes-count"
+                    >
+                        0 recipes
+                    </span>
+                </div>
+
+
+                <!-- JavaScript will render recipe cards here -->
+                <div
+                    class="my-recipes-grid"
+                    id="my-recipes-grid"
+                ></div>
+
+
+                <!-- Empty state: shown when there are no user recipes -->
+                <div
+                    class="my-recipes-empty"
+                    id="my-recipes-empty"
+                >
+                    <div class="my-recipes-empty-icon">
+                        <i class="fa-solid fa-bowl-food"></i>
+                    </div>
+
+                    <h3>Your cookbook is waiting!</h3>
+
+                    <p>
+                        You haven't created any recipes yet.
+                        Start with your first delicious creation.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="button"
+                        id="empty-add-recipe-button"
+                    >
+                        <i class="fa-solid fa-plus"></i>
+                        Create Your First Recipe
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ADD / EDIT RECIPE FORM -->
+        <section
+            class="my-recipe-form-section"
+            id="my-recipe-form-section"
+            hidden
+        >
+            <div class="container">
+
+                <div class="my-recipe-form-card">
+
+                    <div class="my-recipe-form-heading">
+                        <div>
+                            <span class="eyebrow">MAKE IT YOUR OWN</span>
+                            <h2 id="recipe-form-title">Create a Recipe</h2>
+                            <p>
+                                Add the details so you can cook it again
+                                whenever you like.
+                            </p>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="my-recipe-close-button"
+                            id="cancel-recipe-button"
+                            aria-label="Close recipe form"
+                        >
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+
+                    <form id="my-recipe-form">
+
+                        <!-- Used to distinguish editing from creating -->
+                        <input
+                            type="hidden"
+                            id="edit-recipe-id"
+                            name="id"
+                        >
+
+
+                        <div class="my-recipe-form-grid">
+
+                            <!-- Recipe name -->
+                            <div class="form-group">
+                                <label for="recipe-title">
+                                    Recipe Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="recipe-title"
+                                    name="title"
+                                    placeholder="e.g. Creamy Mushroom Pasta"
+                                    required
+                                    maxlength="100"
+                                >
+                            </div>
+
+
+                            <!-- Image path or URL -->
+                            <div class="form-group">
+                                <label for="recipe-image">
+                                    Image URL or Path
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="recipe-image"
+                                    name="image"
+                                    placeholder="assets/image/my-dish.jpg"
+                                    required
+                                >
+                            </div>
+
+
+                            <!-- Description -->
+                            <div class="form-group form-group-full">
+                                <label for="recipe-description">
+                                    Description
+                                </label>
+
+                                <textarea
+                                    id="recipe-description"
+                                    name="description"
+                                    rows="3"
+                                    placeholder="What makes this recipe special?"
+                                    required
+                                ></textarea>
+                            </div>
+
+
+                            <!-- Category -->
+                            <div class="form-group">
+                                <label for="recipe-category">
+                                    Meal Type
+                                </label>
+
+                                <select
+                                    id="recipe-category"
+                                    name="mealType"
+                                    required
+                                >
+                                    <option value="">Choose a category</option>
+                                    <option value="Breakfast">Breakfast</option>
+                                    <option value="Lunch">Lunch</option>
+                                    <option value="Dinner">Dinner</option>
+                                    <option value="Dessert">Dessert</option>
+                                    <option value="Snack">Snack</option>
+                                    <option value="Drinks">Drinks</option>
+                                </select>
+                            </div>
+
+
+                            <!-- Difficulty -->
+                            <div class="form-group">
+                                <label for="recipe-difficulty">
+                                    Difficulty
+                                </label>
+
+                                <select
+                                    id="recipe-difficulty"
+                                    name="difficulty"
+                                    required
+                                >
+                                    <option value="">Choose difficulty</option>
+                                    <option value="Easy">Easy</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Hard">Hard</option>
+                                </select>
+                            </div>
+
+
+                            <!-- Preparation time -->
+                            <div class="form-group">
+                                <label for="recipe-prep-time">
+                                    Preparation Time (min)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="recipe-prep-time"
+                                    name="prepTime"
+                                    min="0"
+                                    max="1440"
+                                    value="0"
+                                    required
+                                >
+                            </div>
+
+
+                            <!-- Cooking time -->
+                            <div class="form-group">
+                                <label for="recipe-cooking-time">
+                                    Cooking Time (min)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="recipe-cooking-time"
+                                    name="cookingTime"
+                                    min="0"
+                                    max="1440"
+                                    value="0"
+                                    required
+                                >
+                            </div>
+
+
+                            <!-- Servings -->
+                            <div class="form-group">
+                                <label for="recipe-servings">
+                                    Servings
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="recipe-servings"
+                                    name="servings"
+                                    min="0"
+                                    max="100"
+                                    value="0"
+                                    required
+                                >
+                            </div>
+
+
+                            <!-- Tags -->
+                            <div class="form-group">
+                                <label for="recipe-tags">
+                                    Tags
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="recipe-tags"
+                                    name="tags"
+                                    placeholder="quick, healthy, simple"
+                                >
+
+                                <small>Separate tags with commas.</small>
+                            </div>
+
+
+                            <!-- Ingredients -->
+                            <div class="form-group form-group-full">
+                                <label for="recipe-ingredients">
+                                    Ingredients
+                                </label>
+
+                                <textarea
+                                    id="recipe-ingredients"
+                                    name="ingredients"
+                                    rows="5"
+                                    placeholder="Pasta | 200 | g&#10;Olive oil | 2 | tbsp&#10;Salt | 1 | tsp"
+                                    required
+                                ></textarea>
+
+                                <small>
+                                    Enter one ingredient per line:
+                                    name | quantity | unit
+                                </small>
+                            </div>
+
+
+                            <!-- Instructions -->
+                            <div class="form-group form-group-full">
+                                <label for="recipe-instructions">
+                                    Cooking Instructions
+                                </label>
+
+                                <textarea
+                                    id="recipe-instructions"
+                                    name="instructions"
+                                    rows="5"
+                                    placeholder="Cook pasta | Boil pasta until tender.&#10;Prepare sauce | Heat oil and add ingredients."
+                                    required
+                                ></textarea>
+
+                                <small>
+                                    Enter one step per line:
+                                    step title | description
+                                </small>
+                            </div>
+
+
+                            <!-- Tips -->
+                            <div class="form-group form-group-full">
+                                <label for="recipe-tips">
+                                    Cooking Tips (Optional)
+                                </label>
+
+                                <textarea
+                                    id="recipe-tips"
+                                    name="tips"
+                                    rows="2"
+                                    placeholder="Any helpful tips for this recipe?"
+                                ></textarea>
+                            </div>
+
+                        </div>
+
+
+                        <div class="my-recipe-form-actions">
+
+                            <button
+                                type="button"
+                                class="button button-outline"
+                                id="discard-recipe-button"
+                            >
+                                Cancel
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="button"
+                                id="save-recipe-button"
+                            >
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                Save Recipe
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-container container">
+
+            <!-- Brand information -->
+            <div class="footer-brand">
+                <a href="index.html" class="brand">
+                    <span class="brand-icon">S</span>
+                    <span class="brand-name">savorly<span>.</span></span>
+                </a>
+
+                <p>
+                    Discover delicious food, explore new recipes
+                    and bring a little more joy to your kitchen.
+                </p>
+            </div>
+
+
+            <!-- Quick links -->
+            <div class="footer-column">
+                <h3>Explore</h3>
+
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="explore.html">All Recipes</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+
+
+            <!-- Recipe categories -->
+            <div class="footer-column">
+                <h3>Categories</h3>
+
+                <ul>
+                    <li><a href="explore.html?category=breakfast">
+                        Breakfast
+                    </a></li>
+
+                    <li><a href="explore.html?category=lunch">
+                        Lunch
+                    </a></li>
+
+                    <li><a href="explore.html?category=dinner">
+                        Dinner
+                    </a></li>
+
+                    <li><a href="explore.html?category=dessert">
+                        Dessert
+                    </a></li>
+                </ul>
+            </div>
+
+
+            <!-- Project information -->
+            <div class="footer-column">
+                <h3>About Savorly</h3>
+
+                <p>
+                    A recipe discovery project made for food lovers
+                    and curious home cooks.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom container">
+            <p>© 2026 Savorly. Made with care.</p>
+            <p>Discover it. Cook it. Love it.</p>
+        </div>
+
+    </footer>
+
+
+    <!-- Shared data functions must load before page-specific JS -->
+    <script src="/assets/css/recipe.css"></script>
+    <script src="/assets/js/my-recipes.js"></script>
+
+</body>
+</html>

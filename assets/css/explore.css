@@ -165,10 +165,6 @@
     font-size: 30px;
 }
 
-.recipe-count {
-    color: var(--text-light);
-    font-size: 14px;
-}
 
 /* 7. Recipe Grid */
 .explore-recipe-grid {
@@ -346,7 +342,3 @@
     line-height: 1.7;
 }
 
-/* 13. Small Visual Details */
-.explore-section .eyebrow {
-    color: var(--orange-dark);
-}

@@ -12,7 +12,7 @@
         <nav class="navbar container">
 
             <!-- Brand -->
-            <a href="index.html" class="brand" aria-label="Savorly home">
+            <a href="index.html" class="brand" >
                 <span class="brand-icon">S</span>
                 <span class="brand-name">savorly<span>.</span></span>
             </a>
@@ -26,15 +26,9 @@
                     <a href="explore.html" class="nav-link">Explore</a>
                 </li>
                 <li>
-                    <a href="favorites.html" class="nav-link">
-                        <span class="favorite-icon"><i class="fa-regular fa-heart"></i></span>
-                        Favorites
-                    </a>
-                </li>
-                <li>
-                    <a href="add-recipe.html" class="nav-link">
-                        <span ><i class="fa-solid fa-plus"></i></span>
-                        Add Recipe
+                    <a href="my-recipes.html" class="nav-link">
+                        <span ><i class="fa-solid fa-bowl-food"></i></span>
+                        My Recipe
                     </a>
                 </li>
                 
@@ -54,7 +48,7 @@
 
 
     <main>
-        <section class="hero container" aria-label="Featured recipes">
+        <section class="hero container" >
 
             <div class="hero-slider">
                 <div class="hero-track">
@@ -82,8 +76,7 @@
                         <a href="recipe.html?id=pasta"
                            class="button button-primary">
                             Explore Recipe
-
-                          <span aria-hidden="true">↗</span>
+                            <span aria-hidden="true">↗</span>
                         </a>
                     </div>
 
@@ -199,51 +192,50 @@
                     </div>
 
                 </article>
-                </div>
 
 
                 <!-- Slider controls -->
                 <div class="slider-controls"
-                     aria-label="Featured recipe controls">
+                     >
 
                     <button type="button"
                             class="slider-arrow"
                             id="prev-slide"
-                            aria-label="Previous recipe">
-                        ←
+                            >
+                        <i class="fa-solid fa-arrow-left-long"></i>
                     </button>
 
                     <div class="slider-pagination"
-                         aria-label="Choose a recipe">
+                         >
 
                         <button type="button"
                                 class="slider-dot active"
                                 data-target="0"
-                                aria-label="Show recipe 1"
+                                
                                 aria-current="true"></button>
 
                         <button type="button"
                                 class="slider-dot"
                                 data-target="1"
-                                aria-label="Show recipe 2"></button>
+                                ></button>
 
                         <button type="button"
                                 class="slider-dot"
                                 data-target="2"
-                                aria-label="Show recipe 3"></button>
+                                ></button>
 
                         <button type="button"
                                 class="slider-dot"
                                 data-target="3"
-                                aria-label="Show recipe 4"></button>
+                                ></button>
 
                     </div>
 
                     <button type="button"
                             class="slider-arrow"
                             id="next-slide"
-                            aria-label="Next recipe">
-                        →
+                            >
+                        <i class="fa-solid fa-arrow-right-long"></i>
                     </button>
 
                 </div>
@@ -494,8 +486,8 @@
         </div>
 
 
-    </footer>
 
-    <script src="../assets/js/slider.js" defer></script>
+    </footer>
+    <script src="../assets/js/slider.js" defer></script>            
 </body>
 </html>

@@ -211,6 +211,7 @@
     transform: scale(1.05);
 }
 
+
 /* 9. Favorite Button */
 .favorite-button {
     position: absolute;
@@ -225,24 +226,26 @@
     border: none;
     border-radius: 50%;
     background-color: var(--white);
-    color: var(--blue);
+    color: #f47b43;
     font-size: 17px;
     cursor: pointer;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.25s ease;
 }
 
+/* Khi chưa yêu thích: trái tim chỉ có viền */
+/* Khi đã yêu thích: trái tim tô kín màu cam */
+.favorite-button.is-favorite,
+.favorite-button.is-favorite i {
+    color: #f47b43;
+}
+
 .favorite-button:hover {
     background-color: var(--skin);
-    color: var(--orange-dark);
     transform: scale(1.08);
 }
 
-/* JavaScript can add this class when a recipe is favorited */
-.favorite-button.active {
-    background-color: var(--orange);
-    color: var(--white);
-}
+
 
 /* 10. Recipe Information */
 .explore-recipe-info {

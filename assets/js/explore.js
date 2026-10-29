@@ -5,7 +5,7 @@ const recipeGrid = document.getElementById("explore-recipe-grid");
 const recipeCount = document.getElementById("recipe-count");
 const noRecipes = document.getElementById("no-recipes");
 
-// Các element của thanh tìm kiếm và bộ lọc
+// Các element phục vụ Tìm kiếm & Lọc (Search & Filter)
 const searchForm = document.querySelector(".explore-search");
 const searchInput = document.getElementById("recipe-search");
 const categoryFilter = document.getElementById("category-filter");
@@ -13,15 +13,12 @@ const timeFilter = document.getElementById("time-filter");
 const difficultyFilter = document.getElementById("difficulty-filter");
 const resetFiltersBtn = document.getElementById("reset-filters");
 
-// Biến lưu trữ toàn bộ dữ liệu công thức ban đầu
-let allRecipesList = [];
-
 /* ========================================
    2. CREATE RECIPE CARD
 ======================================== */
 function createRecipeCard(recipe) {
     const totalTime = getTotalTime(recipe);
-    // Lấy loại món ăn làm danh mục hiển thị
+    // Lấy loại món ăn, nếu không có thì để mặc định
     const category = recipe.mealType || "Recipe";
 
     return `
@@ -29,13 +26,20 @@ function createRecipeCard(recipe) {
             <a href="recipe.html?id=${recipe.id}" class="explore-recipe-image">
                 <img src="${recipe.image}" alt="${recipe.title}" loading="lazy">
             </a>
+            
+            <!-- Nút Favorites: Dành cho phần việc của bạn bạn -->
             <button class="favorite-button" type="button" aria-label="Add ${recipe.title} to favorites" data-recipe-id="${recipe.id}">
                 <i class="fa-regular fa-heart"></i>
             </button>
+            
             <div class="explore-recipe-info">
-                <span class="recipe-category">${category}</span>
+                <span class="recipe-category">
+                    ${category}
+                </span>
                 <h3>
-                    <a href="recipe.html?id=${recipe.id}">${recipe.title}</a>
+                    <a href="recipe.html?id=${recipe.id}">
+                        ${recipe.title}
+                    </a>
                 </h3>
                 <p>${recipe.description}</p>
                 <div class="explore-recipe-meta">
@@ -43,11 +47,13 @@ function createRecipeCard(recipe) {
                         <i class="fa-regular fa-clock"></i>
                         ${totalTime} min
                     </span>
-                    <span>${recipe.difficulty}</span>
+                    <span>
+                        ${recipe.difficulty}
+                    </span>
                 </div>
                 <a href="recipe.html?id=${recipe.id}" class="button button-outline recipe-view-button">
                     View Recipe
-                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"> </span>
                 </a>
             </div>
         </article>
@@ -58,118 +64,114 @@ function createRecipeCard(recipe) {
    3. DISPLAY RECIPES
 ======================================== */
 function renderRecipes(recipeList) {
-    // Đổ dữ liệu HTML vào Grid
+    // Vẽ lại HTML từ danh sách truyền vào
     recipeGrid.innerHTML = recipeList.map(recipe => createRecipeCard(recipe)).join("");
     
     // Cập nhật số lượng
     recipeCount.textContent = `${recipeList.length} recipes`;
     
-    // Hiển thị thông báo nếu không có kết quả
-    noRecipes.hidden = recipeList.length > 0;
+    // Hiện thông báo nếu không có kết quả nào
+    if (recipeList.length === 0) {
+        recipeGrid.hidden = true;
+        noRecipes.hidden = false;
+    } else {
+        recipeGrid.hidden = false;
+        noRecipes.hidden = true;
+    }
 }
 
 /* ========================================
-   4. FILTER LOGIC
+   4. TÍNH NĂNG TÌM KIẾM VÀ LỌC (CỦA BẠN)
 ======================================== */
-function filterRecipes() {
+function applyFilters() {
+    // 1. Lấy giá trị từ các input
     const searchTerm = searchInput.value.toLowerCase().trim();
-    const categoryValue = categoryFilter.value.toLowerCase();
-    const timeValue = timeFilter.value;
-    const difficultyValue = difficultyFilter.value.toLowerCase();
+    const categoryVal = categoryFilter.value.toLowerCase();
+    const timeVal = timeFilter.value;
+    const difficultyVal = difficultyFilter.value.toLowerCase();
 
-    const filtered = allRecipesList.filter(recipe => {
-        // 1. Kiểm tra từ khóa tìm kiếm (so khớp với tiêu đề)
+    // 2. Dùng hàm .filter() để tạo mảng mới, KHÔNG LÀM HỎNG mảng 'recipes' gốc
+    const filteredRecipes = recipes.filter(recipe => {
+        // Lọc theo tên món ăn (Search)
         const matchSearch = recipe.title.toLowerCase().includes(searchTerm);
 
-        // 2. Kiểm tra danh mục (mealType hoặc tags, ví dụ: 'Healthy')
-        const recipeCategory = (recipe.mealType || "").toLowerCase();
-        const matchCategory = categoryValue === "all" || 
-                              recipeCategory === categoryValue || 
-                              (recipe.tags && recipe.tags.some(tag => tag.toLowerCase() === categoryValue));
+        // Lọc theo Danh mục (có thể nằm ở mealType hoặc tags như Healthy)
+        let matchCategory = true;
+        if (categoryVal !== "all") {
+            const isMealType = recipe.mealType && recipe.mealType.toLowerCase() === categoryVal;
+            const isTag = recipe.tags && recipe.tags.some(tag => tag.toLowerCase() === categoryVal);
+            matchCategory = isMealType || isTag;
+        }
 
-        // 3. Kiểm tra thời gian
-        const totalTime = getTotalTime(recipe);
-        const matchTime = timeValue === "all" || totalTime <= parseInt(timeValue);
+        // Lọc theo Thời gian nấu (Time)
+        let matchTime = true;
+        if (timeVal !== "all") {
+            const totalTime = getTotalTime(recipe);
+            matchTime = totalTime <= parseInt(timeVal);
+        }
 
-        // 4. Kiểm tra độ khó
-        const matchDifficulty = difficultyValue === "all" || (recipe.difficulty || "").toLowerCase() === difficultyValue;
+        // Lọc theo Độ khó (Difficulty)
+        let matchDifficulty = true;
+        if (difficultyVal !== "all") {
+            matchDifficulty = recipe.difficulty && recipe.difficulty.toLowerCase() === difficultyVal;
+        }
 
-        // Trả về true nếu thỏa mãn mọi điều kiện
+        // Phải thoả mãn TẤT CẢ các điều kiện lọc (AND logic)
         return matchSearch && matchCategory && matchTime && matchDifficulty;
     });
 
-    renderRecipes(filtered);
+    // 3. Render lại danh sách đã lọc
+    renderRecipes(filteredRecipes);
+}
+
+// Hàm Reset bộ lọc khi bấm "Show All Recipes"
+function resetFilters() {
+    searchInput.value = "";
+    categoryFilter.value = "all";
+    timeFilter.value = "all";
+    difficultyFilter.value = "all";
+    
+    renderRecipes(recipes); // Trả lại danh sách gốc ban đầu
 }
 
 /* ========================================
-   5. URL PARAMETERS (Xử lý link từ Footer)
-======================================== */
-function applyUrlParameters() {
-    const params = new URLSearchParams(window.location.search);
-    const queryParams = params.get('q');
-    const categoryParams = params.get('category');
-
-    let shouldFilter = false;
-
-    if (queryParams) {
-        searchInput.value = queryParams;
-        shouldFilter = true;
-    }
-
-    if (categoryParams) {
-        // Cập nhật giá trị thẻ select
-        categoryFilter.value = categoryParams.toLowerCase();
-        shouldFilter = true;
-    }
-
-    if (shouldFilter) {
-        filterRecipes();
-    }
-}
-
-/* ========================================
-   6. EVENT LISTENERS
+   5. CÀI ĐẶT LẮNG NGHE SỰ KIỆN (EVENT LISTENERS)
 ======================================== */
 function setupEventListeners() {
-    // Ngăn chặn tải lại trang khi nhấn Enter trong ô tìm kiếm
+    // Ngăn trang bị reload khi nhấn Enter trong ô Search
     if (searchForm) {
         searchForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            filterRecipes();
+            applyFilters();
         });
     }
 
-    // Lọc realtime khi người dùng nhập chữ
-    if (searchInput) searchInput.addEventListener("input", filterRecipes);
+    // Lọc realtime ngay khi user gõ phím
+    searchInput.addEventListener("input", applyFilters);
 
-    // Lọc khi người dùng thay đổi select box
-    if (categoryFilter) categoryFilter.addEventListener("change", filterRecipes);
-    if (timeFilter) timeFilter.addEventListener("change", filterRecipes);
-    if (difficultyFilter) difficultyFilter.addEventListener("change", filterRecipes);
+    // Bắt sự kiện khi user thay đổi dropdown (Select)
+    categoryFilter.addEventListener("change", applyFilters);
+    timeFilter.addEventListener("change", applyFilters);
+    difficultyFilter.addEventListener("change", applyFilters);
 
-    // Nút "Show All Recipes" khi không tìm thấy kết quả
+    // Bắt sự kiện nút Reset
     if (resetFiltersBtn) {
-        resetFiltersBtn.addEventListener("click", () => {
-            searchInput.value = "";
-            categoryFilter.value = "all";
-            timeFilter.value = "all";
-            difficultyFilter.value = "all";
-            filterRecipes();
-        });
+        resetFiltersBtn.addEventListener("click", resetFilters);
     }
 }
 
 /* ========================================
-   7. LOAD RECIPES
+   6. START
 ======================================== */
 async function initExplore() {
-    allRecipesList = await loadRecipes(); // Gọi hàm từ recipes.js
-    renderRecipes(allRecipesList);
+    // Tải dữ liệu từ recipes.js
+    const recipeList = await loadRecipes();
+    
+    // Render lần đầu
+    renderRecipes(recipeList);
+    
+    // Kích hoạt các bộ lọc
     setupEventListeners();
-    applyUrlParameters();
 }
 
-/* ========================================
-   8. START
-======================================== */
 initExplore();

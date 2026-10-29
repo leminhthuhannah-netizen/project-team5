@@ -701,6 +701,58 @@
         </div>
 
     </footer>
+       <script>
+const recipes = {
+    pasta: {
+        title: "Fresh Tomato Pasta",
+        description: "A delicious pasta dish made with fresh tomatoes, fragrant basil and a touch of olive oil. Simple ingredients, beautiful flavors.",
+        image: "DÁN-SRC-ẢNH-PASTA"
+    },
 
+    TODAY: {
+        title: "With Tomato Sauce",
+        description: " A comforting Italian classic made withfresh tomatoes, fragrant herbs and love.",
+        image: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1200&q=85"
+        
+    },
+
+    chicken: {
+        title: "Golden Chicken & Herbs",
+        description: "Juicy roasted chicken with aromatic herbs for a warm and satisfying meal.",
+        image: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=1200&q=85"
+        
+    },
+    LIGHT:{
+        title:"LIGHT & DELICIOUS",
+        description: "Crisp vegetables, fresh greens and abright dressing for a refreshing bite",
+        image: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=1200&q=85"
+
+    },
+
+    SWEET:{
+        title:"Breakfast BowlS",
+        description: " A bright and fruity bowl with berriesto make your morning feel special.",
+        image: "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=1200&q=85"
+
+    },
+
+
+    // 2 món còn lại thêm theo đúng mẫu trên
+};
+
+const id = new URLSearchParams(location.search).get("id") || "pasta";
+const r = recipes[id];
+
+if (r) {
+    const title = document.querySelector("h1");
+    const desc = title?.nextElementSibling;
+    const img = document.querySelector("main img, section img");
+
+    if (title) title.textContent = r.title;
+    if (desc && desc.tagName === "P") desc.textContent = r.description;
+    if (img) { img.src = r.image; img.alt = r.title; }
+    document.title = r.title + " | Savorly";
+}
+</script>
 </body>
 </html>

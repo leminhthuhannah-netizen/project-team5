@@ -1,4 +1,3 @@
-
 /* ========================================
    1. GET HTML ELEMENTS
 ======================================== */
@@ -29,17 +28,13 @@ function createRecipeCard(recipe) {
                      alt="${recipe.title}"
                      loading="lazy">
 
-            </a>
-
-            <button class="favorite-button"
-                    type="button"
-                    aria-label="Add ${recipe.title} to favorites"
-                    aria-pressed="false"
-                    data-recipe-id="${recipe.id}">
-
-                <i class="fa-regular fa-heart"></i>
-
-            </button>
+                    </a>
+        <button class="favorite-button ${getFavoriteIds().includes(String(recipe.id)) ? 'is-favorite' : ''}"
+                type="button"
+                aria-pressed="${getFavoriteIds().includes(String(recipe.id))}"
+                data-recipe-id="${recipe.id}">
+            <i class="${getFavoriteIds().includes(String(recipe.id)) ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+        </button>
 
             <div class="explore-recipe-info">
 
@@ -116,8 +111,53 @@ async function initExplore() {
 }
 
 
+
 /* ========================================
-   5. START
+   5. HANDLE FAVORITE BUTTON
+======================================== */
+
+const FAVORITES_KEY = "savorly_favorites";
+
+function getFavoriteIds() {
+    try {
+        const data = JSON.parse(localStorage.getItem(FAVORITES_KEY));
+        return Array.isArray(data) ? data.map(String) : [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function saveFavoriteIds(ids) {
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify(ids));
+}
+
+if (recipeGrid) {
+    recipeGrid.addEventListener("click", function (event) {
+        const button = event.target.closest(".favorite-button");
+
+        if (!button) return;
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        const recipeId = String(button.dataset.recipeId);
+        const favoriteIds = getFavoriteIds();
+
+        // Chỉ thêm nếu món ăn chưa có trong Favorites
+        if (!favoriteIds.includes(recipeId)) {
+            favoriteIds.push(recipeId);
+            saveFavoriteIds(favoriteIds);
+        }
+
+        // Chuyển sang trang Favorites
+        window.location.href = "favorites.html";
+    });
+}
+
+
+
+/* ========================================
+   6. START
 ======================================== */
 
 initExplore();

@@ -75,14 +75,6 @@ function createRecipeCard(recipe) {
                 <img src="${image}" alt="${title}" loading="lazy">
             </a>
 
-            <button
-                class="favorite-button"
-                type="button"
-                aria-label="Add ${title} to favorites"
-                data-recipe-id="${escapeHtml(id)}">
-                <i class="fa-regular fa-heart"></i>
-            </button>
-
             <div class="explore-recipe-info">
                 <span class="recipe-category">${category}</span>
 
